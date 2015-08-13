@@ -1,0 +1,12 @@
+[{shop_url}] 
+
+Здравствуйте, {firstname} {lastname}, 
+
+Вы получили новое сообщение от {shop_name}
+о заказе №{order_name}.
+
+СООБЩЕНИЕ: {message} 		 
+
+{shop_name} [{shop_url}] работает
+на PrestaShop(tm) [http://www.prestashop.com/] 
+

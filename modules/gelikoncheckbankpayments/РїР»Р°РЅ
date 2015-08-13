@@ -1,0 +1,34 @@
+/*получаем заказы, у которых нет платежек*/
+
+SELECT o.id_order, o.reference, op.order_reference, o.total_paid, o.total_paid_real, os.id_order_state, op.*, oi.number as invoice_num FROM `ps_orders` as o
+LEFT JOIN (SELECT oh.id_order, oh.id_order_state FROM ps_order_history oh
+INNER JOIN (
+SELECT oh.id_order, max(date_add) maxdate FROM ps_order_history as oh group by id_order) max_oh
+ON oh.id_order = max_oh.id_order AND oh.date_add = max_oh.maxdate ) as os
+ON o.id_order = os.id_order
+LEFT JOIN ps_order_payment as op
+ON o.reference=op.order_reference
+LEFT JOIN ps_order_invoice as oi
+ON o.id_order = oi.id_order
+where module = 'bankwire'
+AND oi.number is not null
+AND os.id_order_state IN (3,4,5,9,10,14,15)
+AND
+(o.total_paid > o.total_paid_real
+OR
+op.order_reference is null)
+
+ORDER BY `id_order` DESC
+
+/*для каждого заказа находим платежку, в ней сумму и дату*/
+
+добавляем в бд или через вебсервис - проверить, добавляет ли вебсервис:
+а) множество платежек в один заказа - да, добавляет
+б) добавляет ли стоимость paid_real  в таблицу orders - нет, не добавляет.
+добавляем паумент в ps_order_payment
+добавляем paid real в ps_order
+добавляем в ps_order_invoice_payment
+
+/*меняем статус на ""- есть вебсервис, который добавляет статус в историю заказа*/
+
+/*выводим сообщение, какие заказы были оплачены, сколько всего*/

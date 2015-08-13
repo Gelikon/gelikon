@@ -1,0 +1,53 @@
+.not_validated {
+	background: #ffd0d0;
+	border: 1px solid red;
+}
+
+.validated {
+	background: #90e784;
+	border: 1px solid green;
+}
+
+.inner_fieldset {
+	/*width: 46%;*/
+	/*display: inline-block;*/
+	font-size: 13px;
+	margin-bottom: 15px;
+}
+.inner_fieldset_half {
+	width: 46%;
+	float: left;
+}
+
+.inner_fieldset label {
+	font-weight: normal;
+}
+
+.hint_wrp {
+	position: relative;
+	top: -3px;
+}
+
+.hint_img {
+	vertical-align: middle;
+}
+
+.hint_wrp .hint {
+	display: none;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	width: 280px;
+	z-index: 100;
+}
+
+.packaging_table label {
+	float: none;
+	vertical-align: middle;
+}
+.packaging_table .hint_wrp {
+	top: 0;
+}
+.inner_fieldset label {
+	width: 190px;
+}

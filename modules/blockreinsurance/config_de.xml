@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>blockreinsurance</name>
+	<displayName><![CDATA[Block Kundenvorteile]]></displayName>
+	<version><![CDATA[2.1]]></version>
+	<description><![CDATA[F&uuml;gt einen Footer-Block mit hilfreichen Informationen zu Kundenvorteilen hinzu, um Ihre Kunden davon zu &uuml;berzeugen, dass sie Ihrem Shop vertrauen k&ouml;nnen.]]></description>
+	<author><![CDATA[PrestaShop]]></author>
+	<tab><![CDATA[front_office_features]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>

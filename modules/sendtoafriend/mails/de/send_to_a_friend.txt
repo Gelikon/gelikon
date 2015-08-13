@@ -1,0 +1,13 @@
+
+[{shop_url}] 
+
+Hallo {name}, 
+
+Vielen Dank für die Eröffnung Ihres Kundenkontos bei {shop_name} 
+
+Klicken Sie hier, um den Artikel zu sehen: {product}
+[{product_link}] 
+
+{shop_name} [{shop_url}] powered by
+PrestaShop(tm) [http://www.prestashop.com/] 
+

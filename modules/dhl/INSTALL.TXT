@@ -1,0 +1,2 @@
+Install from the Back Office.
+Click "Configure" next to the module and follow the instructions.

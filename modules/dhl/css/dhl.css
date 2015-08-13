@@ -1,0 +1,146 @@
+.dhl_preview_container { width: 100%; clear: both; overflow: auto; margin: 10px 0; float: left; }
+.dhl_preview_container_cart { width: 100%; margin-top: 5px; clear: both; overflow: auto; text-align: right; }
+
+#dhl_address {    
+    background: none repeat scroll 0 0 #F5F5F5;
+    border-bottom: 1px solid #DCDCDC;
+    color: #585858;
+    font-size: 13px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+}
+#dhl_address_cart { 
+    background: none repeat scroll 0 0 #F5F5F5;
+    border-bottom: 1px solid #DCDCDC;
+    color: #585858;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center; 
+}
+
+#dhl_dest_change { 
+    display: none; 
+    clear: both; 
+    overflow: auto; 
+    text-align: left;
+    color: #4D4D4D;
+    font-size: 14px; 
+}
+#dhl_dest_change_cart { 
+    display: none; 
+    clear: both; 
+    overflow: auto; 
+    text-align: left;
+    color: #4D4D4D;
+    font-size: 14px;  
+}
+
+#dhl_dest_country,
+#dhl_dest_country_cart,
+
+#dhl_dest_state,
+#dhl_dest_state_cart  { 
+    border: 1px solid #999999;
+    padding: 4px;
+    margin: 0 !important;
+    color: #4D4D4D;
+    width: 100% !important; 
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+#dhl_dest_city,
+#dhl_dest_city_cart,
+
+#dhl_dest_zip,
+#dhl_dest_zip_cart {     
+    border: 1px solid #999999;
+    padding: 5px;
+    margin: 0 !important;
+    color: #4D4D4D;
+    width: 100% !important; 
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+#dhl_rate_content {
+    clear: both;
+    overflow: auto;
+    text-align: left;
+    color: #4D4D4D;
+    font-size: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+#dhl_rate_content_cart { 
+    clear: both;
+    overflow: auto;
+    text-align: left;
+    color: #4D4D4D;
+    font-size: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.dhl_carrier_name { float:left; max-width: 75%; }
+.dhl_carrier_name_cart { float:left; max-width: 75%; }
+
+.dhl_carrier_label { text-align: right!important; float: none!important; display: inline!important;width:100%!important }
+
+.dhl_carrier_radio { float: left; text-align: left; }
+
+.dhl_carrier_rate {  float: right; }
+
+.dhl_pointer { cursor: pointer;}
+
+.dhl_carrier_buffer { width: 100%; clear: both; height:3px;}
+
+#dhl_line {
+    float: left;
+    width: 100%;
+    margin: 0 0 5px 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.dhl_hide_button {
+    padding: 3px 6px;
+    border: 1px solid #DCDCDC;
+    background: #969696;
+    color: white !important;
+    float: right;
+    margin: -3px 2px;
+    cursor: pointer;
+}
+.dhl_hide_button:hover {
+    text-decoration: none;
+    background-color: #BDBDBD;
+}
+.submit_button {
+    float: left; 
+    width: 100%; 
+    text-align: center;
+}
+.carrier_selection_radio {
+    border: none;
+    margin: 0 5px 0 0 !important;
+    float: left;
+}
+.carrier_selection_name {
+    text-align: left;
+    width: auto !important;
+    display: inline-flex !important;
+    float: left;
+}

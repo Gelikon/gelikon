@@ -1,0 +1,11 @@
+
+[{shop_url}] 
+
+Hallo {firstname} {lastname}, 
+
+Bestellung {order_name} bei {shop_name} ist abholbereit in unserer Buchhandlung. 
+
+
+{shop_name} [{shop_url}] powered by
+PrestaShop(tm) [http://www.prestashop.com/] 
+

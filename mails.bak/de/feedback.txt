@@ -1,0 +1,15 @@
+
+[{shop_url}] 
+
+Поступил новый заказ звонка
+ИМЯ: {name}
+EMAIL: {email}
+СООБЩЕНИЕ: {mess}
+
+
+
+
+
+{shop_name} [{shop_url}] работает
+на PrestaShop(tm) [http://www.prestashop.com/] 
+

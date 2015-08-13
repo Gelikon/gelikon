@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>blocksocial</name>
+	<displayName><![CDATA[Block Soziale Netzwerke]]></displayName>
+	<version><![CDATA[1.1]]></version>
+	<description><![CDATA[Erm&ouml;glicht Ihnen, zus&auml;tzliche Informationen f&uuml;r soziale Netzwerke hinzuzuf&uuml;gen.]]></description>
+	<author><![CDATA[PrestaShop]]></author>
+	<tab><![CDATA[front_office_features]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>

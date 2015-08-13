@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>statsvisits</name>
+	<displayName><![CDATA[Besuche und Besucher]]></displayName>
+	<version><![CDATA[1.3]]></version>
+	<description><![CDATA[F&uuml;gt der Statikstik-&Uuml;bersicht eine Auswertung der Beusche und Besucher hinzu.]]></description>
+	<author><![CDATA[PrestaShop]]></author>
+	<tab><![CDATA[analytics_stats]]></tab>
+	<is_configurable>0</is_configurable>
+	<need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>

@@ -1,0 +1,38 @@
+<?php
+
+global $_MODULE;
+$_MODULE = array();
+$_MODULE['<{paypal}gelikon>paypal_connect_d1f14cc4a2dade80c92421d26422fea0'] = 'Neue Verbindung herstellen zu';
+$_MODULE['<{paypal}gelikon>paypal_connect_94a27811a721ef512ad7bfa06cab34e0'] = 'Verbindung fehlgeschlagen mit CURL Methode ';
+$_MODULE['<{paypal}gelikon>paypal_connect_70215486455daee13382c68b1a230b82'] = 'Verbindung erfolgreich mit CURL Methode ';
+$_MODULE['<{paypal}gelikon>paypal_connect_e4c4ad49bced42265b5facc2175cdafd'] = 'Senden dieser Parameter:';
+$_MODULE['<{paypal}gelikon>paypal_connect_445583f6641da98fc7ac8fd9d13a564b'] = 'Sendung mit CURL Methode fehlgeschlagen! Fehler:';
+$_MODULE['<{paypal}gelikon>paypal_connect_ef4fbf36eaa2083442d386990ba063c2'] = 'Sendung mit CURL Methode erfolgreich';
+$_MODULE['<{paypal}gelikon>paypal_connect_bf059c9751bb1a20b449b7917b1df374'] = 'Verbindung fehlgeschlagen mit fsockopen Methode ';
+$_MODULE['<{paypal}gelikon>paypal_connect_6e9aa4cb541e09b07602d4ea96080811'] = 'Sendung mit fsockopen Methode fehlgeschlagen!';
+$_MODULE['<{paypal}gelikon>paypal_connect_842a183be225d415b2b4375ba1dd1c94'] = 'Sendung mit fsockopen Methode erfolgreich';
+$_MODULE['<{paypal}gelikon>paypal_lib_7c2d00d8c94d1ce0f515db8b0481db40'] = 'PayPal Antwort:';
+$_MODULE['<{paypal}gelikon>notifier_36ec50c0e914dd2fb48a1b27540512ce'] = 'Zahlung akzeptiert.';
+$_MODULE['<{paypal}gelikon>about_e816e21c1c8e0eba0620fa3df6bd6795'] = 'Was ist PayPal?';
+$_MODULE['<{paypal}gelikon>about_16ea57badae98f402bb8f2b2f49d4e77'] = 'PayPal ist ein bewährter Marktführer bei Online-Shop-Zahlungen, der es Käufern und Unternehmen ermöglicht, Geld online zu senden und zu empfangen. PayPal hat über 100 Millionen Mitgliedskonten in 190 Ländern und Regionen. Es wird von Händlern allerorten, sowohl auf als auch außerhalb von eBay, akzeptiert.';
+$_MODULE['<{paypal}gelikon>about_d20adade7baa1b60b713521031ea676c'] = 'Ist es sicher?';
+$_MODULE['<{paypal}gelikon>about_64f7b897c6d56fc62428f692ee5737cd'] = 'PayPal schützt Ihre Kreditkarteninformationen mit branchenweit führenden Sicherheits-und Betrugsbekämpfungssystemen. Wenn Sie PayPal verwenden, werden Ihre finanziellen Informationen dem Händler niemals sichtbar gemacht.';
+$_MODULE['<{paypal}gelikon>about_5ef30813484389e4200640c2f006004d'] = 'Warum PayPal?';
+$_MODULE['<{paypal}gelikon>about_86550d4ea832930db4366f03b90bdfb8'] = 'Gebührenfrei einkaufen oder Geld senden mit PayPal';
+$_MODULE['<{paypal}gelikon>about_7dc9e529337e5a55a12bf362b8e68cac'] = 'Bequem einkaufen und zahlen durch gespeicherte Daten bei PayPal';
+$_MODULE['<{paypal}gelikon>about_32098ae6a7ecd96805df9e48fb6cc739'] = 'PayPal wird von Millionen von Händlern weltweit akzeptiert und ist die bevorzugte Zahlungsmethode bei eBay';
+$_MODULE['<{paypal}gelikon>about_7934d7d1280bfbb8778743e39292af30'] = 'Nutzen Sie PayPal noch heute!';
+$_MODULE['<{paypal}gelikon>error_a40cab5994f36d4c48103a22ca082e8f'] = 'Ihr Warenkorb';
+$_MODULE['<{paypal}gelikon>error_ad69e733ebae8d264bccaa38d68830e8'] = 'PayPal';
+$_MODULE['<{paypal}gelikon>error_0557fa923dcee4d0f86b1409f5c2167f'] = 'Zurück';
+$_MODULE['<{paypal}gelikon>order-confirmation_fb077ecba55e5552916bde26d8b9e794'] = 'Bestellbestätigung';
+$_MODULE['<{paypal}gelikon>order-confirmation_a378cd7a0839cbd4ec3e45bbdeeb69be'] = 'Ihre Bestellnummer lautet:';
+$_MODULE['<{paypal}gelikon>order-confirmation_4082ea29b4f196c4f60533500139725a'] = 'Bestellung verfolgen';
+$_MODULE['<{paypal}gelikon>order-confirmation_9390390581f54c65d6acfc8da4e17362'] = 'Zurück zu Bestellungen';
+$_MODULE['<{paypal}gelikon>column_dac2693baa5c5c9a5318609ed81c4f2a'] = 'Mit PayPal bezahlen ';
+$_MODULE['<{paypal}gelikon>confirmation_2e2117b7c81aa9ea6931641ea2c6499f'] = 'Ihre Bestellung vom';
+$_MODULE['<{paypal}gelikon>confirmation_75fbf512d744977d62599cc3f0ae2bb4'] = 'ist abgeschlossen.';
+$_MODULE['<{paypal}gelikon>confirmation_15b0f8e55c6bdfc3d5fd0b6b3b6cb3ee'] = 'Sie haben die PayPal-Methode gewählt.';
+$_MODULE['<{paypal}gelikon>confirmation_e6dc7945b557a1cd949bea92dd58963e'] = 'Ihre Bestellung wird sehr bald geschickt werden.';
+$_MODULE['<{paypal}gelikon>confirmation_0db71da7150c27142eef9d22b843b4a9'] = 'Bei Fragen oder für weitere Informationen, kontaktieren Sie bitte unseren';
+$_MODULE['<{paypal}gelikon>confirmation_64430ad2835be8ad60c59e7d44e4b0b1'] = 'Kunden-Support';

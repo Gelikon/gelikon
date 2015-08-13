@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Страница продукта</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/css.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+      <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css"/>
+    <![endif]-->
+</head>
+<body>
+<!--основной контейнер-->
+<div class="gk-container-main">
+
+<!--сообщение-->
+<div class="gk-panel-msg">
+    <div class="gk-container"></div>
+</div>
+
+<!--шапка-->
+<div class="gk-panel gk-panel-header">
+<div class="gk-container">
+<div class="gk-g-wrap">
+<div class="gk-col gk-col3">
+
+    <!--логотип-->
+    <div class="gk-blk-logo"></div>
+
+    <!--о магазине-->
+    <div class="gk-about-shop">
+        <a href="#">о магазине</a>
+    </div>
+
+</div>
+<div class="gk-col gk-col9">
+<div class="gk-g-wrap">
+
+    <!--энциклопедия gelicon-->
+    <div class="gk-col">
+        <div class="gk-border-h gk-encyclopedia">
+            <a href="#">энциклопедия gelicon</a>
+        </div>
+    </div>
+
+    <!--переключатель языков-->
+    <div class="gk-col">
+        <ul class="nav nav-horizontal gk-lang-switch">
+            <li><a href="#" class="sel">ru</a></li>
+            <li><a href="#">en</a></li>
+            <li><a href="#">de</a></li>
+        </ul>
+    </div>
+
+    <!--аутентификация пользователя-->
+    <div class="gk-col">
+        <div class="gk-user-authentication">
+            <div class="gk-border-h ">
+                <a href="#" class="btn-open">личный кабинет</a><span class="icon icon-lock btn-open"></span>
+            </div>
+
+            <!--скрытыя панел-->
+            <div class="hide-panel">
+                <form>
+                    <a href="#" class="icon icon-delete"></a>
+
+                    <div class="control-row">
+                        <div class="control-label">
+                            <label style="margin-left: 10px">логин</label>
+                        </div>
+                        <div class="control-widget">
+                            <input type="text"/>
+                        </div>
+                        <div class="gk-clear-fix"></div>
+                    </div>
+                    <div class="control-row">
+                        <div class="control-label">
+                            <label>пороль</label>
+                        </div>
+                        <div class="control-widget">
+                            <input type="password"/>
+                        </div>
+                        <div class="gk-clear-fix"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-yellow">войти</button>
+                    <a href="#" class="btn btn-black">регистрация</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--форма поиска с расширеным выпадающим-->
+    <div class="gk-col">
+        <div class="gk-search-form">
+            <div class="gk-borders">
+                <a href="#" class="icon icon-search btn-open"></a>
+            </div>
+            <!--скрытыя панел-->
+            <div class="hide-panel">
+                <form>
+                    <div class="gk-borders">
+                        <div class="control-row">
+                            <div class="control-widget">
+                                <div class="icon icon-keyboard"></div>
+                                <input type="text" placeholder="Введите запрос" class="search-input"/>
+                            </div>
+                        </div>
+                        <div class="control-row">
+                            <div class="control-widget">
+                                <select>
+                                    <option>Все категории</option>
+                                    <option>Книги</option>
+                                    <option>Периодика</option>
+                                    <option>Музыка</option>
+                                    <option>Кино</option>
+                                    <option>Дети</option>
+                                    <option>Прочее</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <button type="submit" class="icon icon-search"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--корзина-->
+    <div class="gk-col">
+        <div class="gk-cart"><a href="#">корзина</a><span class="num">1</span></div>
+    </div>
+</div>
+
+
+<!--основное меню-->
+<ul class="nav nav-horizontal gk-main-menu">
+    <li class="sel"><a href="#">книги</a>
+
+        <!--скрытыя панел можно по аналогии добавить в любой пунк меню-->
+        <div class="hide-panel">
+            <div class="line" style="left: 50px!important; width: 190px"></div>
+
+            <div class="gk-g-wrap">
+                <div class="gk-col gk-col9">
+                    <div class="list-wrap">
+
+                        <!--панель категорий, по аналогии делать для немецкого языка -->
+                        <div class="gk-g-wrap lang-panel">
+                            <div class="gk-col gk-col6">
+                                <ul class="nav nav-vertical sub-menu-l1">
+                                    <li><a href="#">Биографии. Воспоминания</a></li>
+                                    <li><a href="#">Букинистика</a></li>
+                                    <li><a href="#">Естественные науки</a></li>
+                                    <li><a href="#">Здоровье. Медицина </a></li>
+                                    <li><a href="#">Иностранные языки. Языкознание</a></li>
+                                    <li><a href="#">История</a></li>
+                                    <li><a href="#">Книги-билингвы</a></li>
+                                    <li><a href="#">Компьютерная литература</a></li>
+                                    <li><a href="#">Кулинария</a>
+                                        <ul class="nav nav-vertical sub-menu-l2">
+                                            <li><a href="#">Культурные альбомы</a></li>
+                                            <li><a href="#">Альбомы с фотографмями</a></li>
+                                            <li><a href="#">Искусство Китая</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Культура. Искусство. Альбомы</a></li>
+                                    <li><a href="#">Литературоведение. Языкознание</a></li>
+                                </ul>
+                            </div>
+                            <div class="gk-col gk-col6">
+                                <ul class="nav nav-vertical sub-menu-l1">
+                                    <li><a href="#">Музыка</a></li>
+                                    <li><a href="#">Немецкий язык и Германия</a></li>
+                                    <li><a href="#">Подписные книжные издания</a></li>
+                                    <li><a href="#">Психология</a></li>
+                                    <li><a href="#">Путешествия</a></li>
+                                    <li><a href="#">Религия. Религиоведение. Эзотерика</a></li>
+                                    <li><a href="#">Справочники. Энциклопедии. Словари</a></li>
+                                    <li><a href="#">Философия</a></li>
+                                    <li><a href="#">Художественная литература</a>
+                                        <ul class="nav nav-vertical sub-menu-l2">
+                                            <li><a href="#">Культурные альбомы</a></li>
+                                            <li><a href="#">Альбомы с фотографмями</a></li>
+                                            <li><a href="#">Искусство Китая</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Хобби. Творчество</a></li>
+                                    <li><a href="#">Разное</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--пример для немецкого языка-->
+                        <div class="gk-g-wrap lang-panel">
+                            <h1 style="color:#000">меню на немецком</h1>
+
+                            <div class="gk-col gk-col6">
+                                <ul class="nav nav-vertical sub-menu-l1">
+                                    <li><a href="#">Биографии. Воспоминания</a></li>
+                                    <li><a href="#">Букинистика</a></li>
+                                    <li><a href="#">Книги-билингвы</a></li>
+                                    <li><a href="#">Компьютерная литература</a></li>
+                                    <li><a href="#">Кулинария</a>
+                                        <ul class="nav nav-vertical sub-menu-l2">
+                                            <li><a href="#">Культурные альбомы</a></li>
+                                            <li><a href="#">Альбомы с фотографмями</a></li>
+                                            <li><a href="#">Искусство Китая</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Культура. Искусство. Альбомы</a></li>
+                                    <li><a href="#">Литературоведение. Языкознание</a></li>
+                                </ul>
+                            </div>
+                            <div class="gk-col gk-col6">
+                                <ul class="nav nav-vertical sub-menu-l1">
+                                    <li><a href="#">Музыка</a></li>
+                                    <li><a href="#">Немецкий язык и Германия</a></li>
+                                    <li><a href="#">Подписные книжные издания</a></li>
+
+                                    <li><a href="#">Художественная литература</a>
+                                        <ul class="nav nav-vertical sub-menu-l2">
+                                            <li><a href="#">Культурные альбомы</a></li>
+                                            <li><a href="#">Альбомы с фотографмями</a></li>
+                                            <li><a href="#">Искусство Китая</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Хобби. Творчество</a></li>
+                                    <li><a href="#">Разное</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!--меню выбора языков, кол-во пунктов соответствует кол-ву панелей(.lang-panel)-->
+                <div class="gk-col gk-col3">
+                    <div class="gk-menu-lang-wrap">
+                        <div class="title">Язык:</div>
+                        <div class="gk-menu-lang">
+                            <a href="#" class="btn btn-lang sel">на русском</a>
+                            <a href="#" class="btn btn-lang">на немецком</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li><a href="#">периодика</a></li>
+    <li><a href="#">музыка</a></li>
+    <li><a href="#">кино</a></li>
+    <li><a href="#">дети</a></li>
+    <li><a href="#">прочее</a></li>
+</ul>
+
+<!--выбор языка предлогаемого контента-->
+<ul class="nav nav-horizontal gk-lang">
+    <li><a href="#" class="sel">на русско</a></li>
+    <li><a href="#">на немецком</a></li>
+</ul>
+</div>
+</div>
+
+<!--контакты в шапке-->
+<div class="gk-border-h gk-contacts">
+    <div class="gk-g-wrap">
+        <div class="gk-col">
+            <b>Телефоны:</b> <span>+49 30 3234815</span>
+        </div>
+        <div class="gk-col">
+            <b>Адрес:</b> <span>Kantstraße 84, 10627 Berlin, Germany </span>
+        </div>
+        <div class="gk-col gk-float-R">
+            <b>Время работы:</b> <span>10:00 — 18:00</span>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<!--мини шапка(появится в при скроле, переменные растояния скроллинга, в main-script.js)-->
+<div class="gk-panel gk-panel-mini-header">
+<div class="gk-container">
+<div class="gk-g-wrap">
+
+<!--логотип-->
+<div class="gk-col">
+    <div class="gk-blk-logo"></div>
+</div>
+
+<!--основное меню-->
+<div class="gk-col">
+    <ul class="nav nav-horizontal gk-main-menu">
+        <li class="sel"><a href="#">книги</a>
+
+            <!--скрытыя панел можно по аналогии добавить в любой пунк меню-->
+            <div class="hide-panel">
+                <div class="line" style="left: 50px!important; width: 190px"></div>
+
+                <div class="gk-g-wrap">
+                    <div class="gk-col gk-col9">
+                        <div class="list-wrap">
+
+                            <!--панель категорий, по аналогии делать для немецкого языка -->
+                            <div class="gk-g-wrap lang-panel">
+                                <div class="gk-col gk-col6">
+                                    <ul class="nav nav-vertical sub-menu-l1">
+                                        <li><a href="#">Биографии. Воспоминания</a></li>
+                                        <li><a href="#">Букинистика</a></li>
+                                        <li><a href="#">Естественные науки</a></li>
+                                        <li><a href="#">Здоровье. Медицина </a></li>
+                                        <li><a href="#">Иностранные языки. Языкознание</a></li>
+                                        <li><a href="#">История</a></li>
+                                        <li><a href="#">Книги-билингвы</a></li>
+                                        <li><a href="#">Компьютерная литература</a></li>
+                                        <li><a href="#">Кулинария</a>
+                                            <ul class="nav nav-vertical sub-menu-l2">
+                                                <li><a href="#">Культурные альбомы</a></li>
+                                                <li><a href="#">Альбомы с фотографмями</a></li>
+                                                <li><a href="#">Искусство Китая</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Культура. Искусство. Альбомы</a></li>
+                                        <li><a href="#">Литературоведение. Языкознание</a></li>
+                                    </ul>
+                                </div>
+                                <div class="gk-col gk-col6">
+                                    <ul class="nav nav-vertical sub-menu-l1">
+                                        <li><a href="#">Музыка</a></li>
+                                        <li><a href="#">Немецкий язык и Германия</a></li>
+                                        <li><a href="#">Подписные книжные издания</a></li>
+                                        <li><a href="#">Психология</a></li>
+                                        <li><a href="#">Путешествия</a></li>
+                                        <li><a href="#">Религия. Религиоведение. Эзотерика</a></li>
+                                        <li><a href="#">Справочники. Энциклопедии. Словари</a></li>
+                                        <li><a href="#">Философия</a></li>
+                                        <li><a href="#">Художественная литература</a>
+                                            <ul class="nav nav-vertical sub-menu-l2">
+                                                <li><a href="#">Культурные альбомы</a></li>
+                                                <li><a href="#">Альбомы с фотографмями</a></li>
+                                                <li><a href="#">Искусство Китая</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Хобби. Творчество</a></li>
+                                        <li><a href="#">Разное</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!--пример для немецкого языка-->
+                            <div class="gk-g-wrap lang-panel">
+                                <h1 style="color:#000">меню на немецком</h1>
+
+                                <div class="gk-col gk-col6">
+                                    <ul class="nav nav-vertical sub-menu-l1">
+                                        <li><a href="#">Биографии. Воспоминания</a></li>
+                                        <li><a href="#">Букинистика</a></li>
+                                        <li><a href="#">Книги-билингвы</a></li>
+                                        <li><a href="#">Компьютерная литература</a></li>
+                                        <li><a href="#">Кулинария</a>
+                                            <ul class="nav nav-vertical sub-menu-l2">
+                                                <li><a href="#">Культурные альбомы</a></li>
+                                                <li><a href="#">Альбомы с фотографмями</a></li>
+                                                <li><a href="#">Искусство Китая</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Культура. Искусство. Альбомы</a></li>
+                                        <li><a href="#">Литературоведение. Языкознание</a></li>
+                                    </ul>
+                                </div>
+                                <div class="gk-col gk-col6">
+                                    <ul class="nav nav-vertical sub-menu-l1">
+                                        <li><a href="#">Музыка</a></li>
+                                        <li><a href="#">Немецкий язык и Германия</a></li>
+                                        <li><a href="#">Подписные книжные издания</a></li>
+
+                                        <li><a href="#">Художественная литература</a>
+                                            <ul class="nav nav-vertical sub-menu-l2">
+                                                <li><a href="#">Культурные альбомы</a></li>
+                                                <li><a href="#">Альбомы с фотографмями</a></li>
+                                                <li><a href="#">Искусство Китая</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Хобби. Творчество</a></li>
+                                        <li><a href="#">Разное</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--меню выбора языков, кол-во пунктов соответствует кол-ву панелей(.lang-panel)-->
+                    <div class="gk-col gk-col3">
+                        <div class="gk-menu-lang-wrap">
+                            <div class="title">Язык:</div>
+                            <div class="gk-menu-lang">
+                                <a href="#" class="btn btn-lang sel">на русском</a>
+                                <a href="#" class="btn btn-lang">на немецком</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li><a href="#">периодика</a></li>
+        <li><a href="#">музыка</a></li>
+        <li><a href="#">кино</a></li>
+        <li><a href="#">дети</a></li>
+        <li><a href="#">прочее</a></li>
+    </ul>
+</div>
+
+<!--энциклопедия gelicon-->
+<div class="gk-col">
+    <div class="gk-col">
+        <div class="gk-border-h gk-encyclopedia">
+            <a href="#">энциклопедия gelicon</a>
+        </div>
+    </div>
+</div>
+
+<!--переключатель языков-->
+<div class="gk-col">
+    <ul class="nav nav-horizontal gk-lang-switch">
+        <li><a href="#" class="sel">ru</a></li>
+        <li><a href="#">en</a></li>
+        <li><a href="#">de</a></li>
+    </ul>
+</div>
+
+<!--аутентификация пользователя-->
+<div class="gk-col">
+    <div class="gk-user-authentication">
+        <a href="#" class="btn-open"></a><span class="icon icon-lock btn-open"></span>
+
+        <!--скрытыя панел-->
+        <div class="hide-panel">
+            <form>
+                <a href="#" class="icon icon-delete"></a>
+
+                <div class="control-row">
+                    <div class="control-label">
+                        <label style="margin-left: 10px">логин</label>
+                    </div>
+                    <div class="control-widget">
+                        <input type="text"/>
+                    </div>
+                    <div class="gk-clear-fix"></div>
+                </div>
+                <div class="control-row">
+                    <div class="control-label">
+                        <label>пороль</label>
+                    </div>
+                    <div class="control-widget">
+                        <input type="password"/>
+                    </div>
+                    <div class="gk-clear-fix"></div>
+                </div>
+                <button type="submit" class="btn btn-yellow">войти</button>
+                <a href="#" class="btn btn-black">регистрация</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--форма поиска с расширеным выпадающим-->
+<div class="gk-col">
+    <div class="gk-search-form">
+        <div class="gk-borders">
+            <a href="#" class="icon icon-search btn-open"></a>
+        </div>
+
+        <!--скрытыя панел-->
+        <div class="hide-panel">
+            <form>
+                <div class="gk-borders">
+                    <div class="control-row">
+                        <div class="control-widget">
+                            <div class="icon icon-keyboard"></div>
+                            <input type="text" placeholder="Введите запрос" class="search-input2"/>
+                        </div>
+                    </div>
+                    <div class="control-row">
+                        <div class="control-widget">
+                            <select>
+                                <option>Все категории</option>
+                                <option>Книги</option>
+                                <option>Периодика</option>
+                                <option>Музыка</option>
+                                <option>Кино</option>
+                                <option>Дети</option>
+                                <option>Прочее</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <button type="submit" class="icon icon-search"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--корзина-->
+<div class="gk-col">
+    <div class="gk-cart"><a href="#">корзина</a><span class="num">1</span></div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!--содержание-->
+<div class="gk-panel gk-panel-content">
+<div class="gk-container">
+
+
+<div class="gk-g-wrap gk-big-col-padding">
+    <div class="gk-col gk-col9">
+        <div class="gk-content-margin">
+            <div class="blk17 gk-elem-first">
+                <!--хлебные крошки-->
+                <ul class="nav nav-horizontal gk-breadcrumbs">
+                    <li><a href="#">Книги</a></li>
+                    <li><a href="#">Культура. Искусство. Альбомы</a></li>
+                    <li><a href="#">Каталоги</a></li>
+                </ul>
+
+            </div>
+
+
+            <!--информация о продукте-->
+            <div class="blk gk-product">
+                <h1>Государственный Русский музей. Альманах, ф№380, 2013. Тротуары Парижа</h1>
+
+                <div class="description gk-border-h">
+                    <div class="cover">
+                        <img src="images/covers/cover01.png" alt="cover01"/>
+                    </div>
+                    <div class="text">
+                        Московский поэт и издатель Сергей Дмитриев, лауреат премии "Хрустальная роза Виктора
+                        Розова", представляет вниманию читателей уникальный альбом фотостихотворений, в котором
+                        воедино сплетены две родственные музы - поэзия и фотография, признанные воспеть образы
+                        Отечества: более 400 стихотворений и столько же фотографий автора посвящены России, ее
+                        многовековой истории, природе, охоте, городам и весям - от Великого Новгорода, Карелии и
+                        Золотого кольца до Дальнего Востока, Санкт-Петербурга и Москвы. Из авторских циклов
+                        фотостихотворений по русским далям и просторам складывается яркая панорама родной земли,
+                        страстно воспетой как с помощью поэзии, так и благодаря чудесным возможностям
+                        фотоискусства.
+                    </div>
+
+                    <div class="gk-clear-fix"></div>
+                </div>
+                <div class="info">
+                    <div class="gk-g-wrap gk-big-col-padding">
+                        <div class="gk-col gk-col7">
+                            <div class="property">
+                                <p class="gk-elem-first"><b>Год издания:</b> 2013</p>
+
+                                <p><b>Переплет:</b>переплет</p>
+
+                                <p><b>Кол-во страниц:</b> 280</p>
+
+                                <p><b>Вес:</b> 20000г</p>
+
+                                <p><b>ISBN:</b> 978-5-93332-443-0</p>
+
+                                <p><b>Количество на складе:</b> Есть в наличии</p>
+                            </div>
+                        </div>
+                        <div class="gk-col gk-col5">
+                            <div class="order">
+                                <div class="price">19.90 EUR<span>включая  налог с оборота без <a href="#">
+                                    стоимости пересылки</a></span></div>
+                                <a href="#" class="btn">купить</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--другие магазины-->
+            <div class="blk gk-other-shops">
+                <h2>Так же, вы можете купить эту книгу:</h2>
+
+                <div class="city gk-elem-first">
+                    <div class="title">В Берлине</div>
+                    <div class="shop gk-elem-first">
+                        <div class="title">Gelikon Europe GmbH “Russische Bücher”</div>
+                        <p><b>Адрес:</b> Kantstraße 84, 10627 Berlin, Germany</p>
+
+                        <p><b>Телефон:</b> +49 30 3234815</p>
+
+                        <p><b>Время работы:</b> 10:00 — 18:00</p>
+                    </div>
+
+                    <div class="shop">
+                        <div class="title">Gelikon Europe GmbH “Russische Bücher”</div>
+                        <p><b>Адрес:</b> Kantstraße 84, 10627 Berlin, Germany</p>
+
+                        <p><b>Телефон:</b> +49 30 3234815</p>
+
+                        <p><b>Время работы:</b> 10:00 — 18:00</p>
+                    </div>
+                </div>
+
+                <div class="city">
+                    <div class="title">В Лейпциге</div>
+                    <div class="shop gk-elem-first">
+                        <div class="title">Gelikon Europe GmbH “Russische Bücher”</div>
+                        <p><b>Адрес:</b> Kantstraße 84, 10627 Berlin, Germany</p>
+
+                        <p><b>Телефон:</b> +49 30 3234815</p>
+
+                        <p><b>Время работы:</b> 10:00 — 18:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="gk-col gk-col3">
+
+        <div class="blk gk-elem-first">
+            <!--баннер-->
+            <div class="gk-banner">
+                <a href="#"><img src="images/banner.jpg" alt="banner"/></a>
+            </div>
+        </div>
+
+        <div class="blk">
+            <div class="gk-subscribe">
+                <div class="title">Подпишитесь на новости</div>
+                <!--mc_embed_signup-->
+                <div id="mc_embed_signup">
+                    <form action="//casetamatic.us3.list-manage.com/subscribe/post?u=35ec21a452d57143a16dce4b2&amp;id=5d8ceaa53a"
+                          method="post" id="mc-embedded-subscribe-form"
+                          name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <div class="mc-field-group">
+                            <label for="mce-EMAIL"></label>
+                            <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                        </div>
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>
+                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+
+                        <div style="position: absolute; left: -5000px;">
+                            <input type="text" name="b_35ec21a452d57143a16dce4b2_5d8ceaa53a" tabindex="-1" value="">
+                        </div>
+                        <input type="submit" value="ok" name="subscribe" id="mc-embedded-subscribe" class="button">
+
+                        <div class="gk-clear-fix"></div>
+                    </form>
+                </div>
+
+                <!--данный скрипт не коректен и останавливает работу всех js скиптов вызывая критичную ошибка-->
+
+                <!--<script type='text/javascript'src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>-->
+                <!--<script type='text/javascript'>(function (cash) {-->
+                <!--window.fnames = new Array();-->
+                <!--window.ftypes = new Array();-->
+                <!--fnames[0] = 'EMAIL';-->
+                <!--ftypes[0] = 'email';-->
+                <!--fnames[1] = 'FNAME';-->
+                <!--ftypes[1] = 'text';-->
+                <!--fnames[2] = 'LNAME';-->
+                <!--ftypes[2] = 'text';-->
+                <!--}(jQuery));-->
+                <!--var $mcj = jQuery.noConflict(true);</script>-->
+                <!--End mc_embed_signup-->
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--похожие продукты-->
+<div class="blk gk-similar-products">
+    <h2 class="gk-content-margin">Вам могут быть интересны:</h2>
+
+    <div class="gk-catalog">
+        <div class="gk-g-wrap">
+
+            <div class="gk-col gk-col3">
+                <div class="gk-item">
+                    <div class="image">
+                        <a href="#" style="background-image: url('images/catalog/book04.jpg')" title="book"></a>
+                    </div>
+                    <div class="info">
+                        <div class="author">В. Лоханкин, В. Петров</div>
+                        <a href="#" class="title">Андрей Белый. Александр Блок. Москва</a>
+
+                        <div class="description">
+                            Предлагаем вашему вниманию очередной, 380 выпуск альманаха "Государственный Русский музей" с
+                            работами выдающегося русского художника Михаила Шемякина "Тротуары Парижа".
+                        </div>
+
+                    </div>
+
+                    <a href="#" class="btn">Узнать больше</a>
+                    <div class="price">19,90 EUR <a href="#" class="icon icon-cart"></a></div>
+                    <a href="#" class="btn">Купить</a>
+
+                </div>
+            </div>
+
+            <div class="gk-col gk-col3">
+                <div class="gk-item">
+                    <div class="image">
+                        <a href="#" style="background-image: url('images/catalog/book10.jpg')" title="book"></a>
+                    </div>
+                    <div class="info">
+                        <div class="author">В. Лоханкин, В. Петров</div>
+                        <a href="#" class="title">Андрей Белый. Александр Блок. Москва</a>
+
+                        <div class="description">
+                            Предлагаем вашему вниманию очередной, 380 выпуск альманаха "Государственный Русский музей" с
+                            работами выдающегося русского художника Михаила Шемякина "Тротуары Парижа".
+                        </div>
+
+                    </div>
+
+                    <a href="#" class="btn">Узнать больше</a>
+                    <div class="price">19,90 EUR <a href="#" class="icon icon-cart"></a></div>
+                    <a href="#" class="btn">Купить</a>
+
+                </div>
+            </div>
+
+            <div class="gk-col gk-col3">
+                <div class="gk-item">
+                    <div class="image">
+                        <a href="#" style="background-image: url('images/catalog/book01.jpg')" title="book"></a>
+                    </div>
+                    <div class="info">
+                        <div class="author">В. Лоханкин, В. Петров</div>
+                        <a href="#" class="title">Андрей Белый. Александр Блок. Москва</a>
+
+                        <div class="description">
+                            Предлагаем вашему вниманию очередной, 380 выпуск альманаха "Государственный Русский музей" с
+                            работами выдающегося русского художника Михаила Шемякина "Тротуары Парижа".
+                        </div>
+
+                    </div>
+
+                    <a href="#" class="btn">Узнать больше</a>
+                    <div class="price">19,90 EUR <a href="#" class="icon icon-cart"></a></div>
+                    <a href="#" class="btn">Купить</a>
+
+                </div>
+            </div>
+
+            <div class="gk-col gk-col3">
+                <div class="gk-item">
+                    <div class="image">
+                        <a href="#" style="background-image: url('images/catalog/book02.jpg')" title="book"></a>
+                    </div>
+                    <div class="info">
+                        <div class="author">В. Лоханкин, В. Петров</div>
+                        <a href="#" class="title">Андрей Белый. Александр Блок. Москва</a>
+
+                        <div class="description">
+                            Предлагаем вашему вниманию очередной, 380 выпуск альманаха "Государственный Русский музей" с
+                            работами выдающегося русского художника Михаила Шемякина "Тротуары Парижа".
+                        </div>
+
+                    </div>
+
+                    <a href="#" class="btn">Узнать больше</a>
+                    <div class="price">19,90 EUR <a href="#" class="icon icon-cart"></a></div>
+                    <a href="#" class="btn">Купить</a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<!--подвал-->
+<div class="gk-panel gk-panel-footer">
+<!--разделитель-->
+<div class="gk-separator"></div>
+
+<div class="gk-container">
+<div class="gk-g-wrap">
+    <div class="gk-col gk-col3">
+
+        <!--энциклопедия gelicon-->
+        <div class="gk-border-h gk-encyclopedia">
+            <a href="#">энциклопедия gelicon</a>
+        </div>
+    </div>
+
+    <div class="gk-col gk-col3">
+
+        <!--о магазине-->
+        <div class="gk-about-shop gk-align-C">
+            <a href="#">о магазине</a>
+        </div>
+    </div>
+
+    <!--форма поиска-->
+    <div class="gk-col gk-col4">
+        <div class="gk-borders">
+            <form class="gk-search-form">
+                <div class="cap btn-open"></div>
+                <a href="#" class="btn-search btn-open">найти</a>
+
+                <!--скрытыя панел-->
+                <div class="hide-panel">
+                    <form>
+                        <div class="gk-borders">
+                            <div class="control-row">
+                                <div class="control-widget">
+                                    <div class="icon icon-keyboard"></div>
+                                    <input type="text" placeholder="Введите запрос" class="search-input3 write"/>
+                                </div>
+                            </div>
+                            <div class="control-row">
+                                <div class="control-widget">
+                                    <select>
+                                        <option>Все категории</option>
+                                        <option>Книги</option>
+                                        <option>Периодика</option>
+                                        <option>Музыка</option>
+                                        <option>Кино</option>
+                                        <option>Дети</option>
+                                        <option>Прочее</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <button type="submit" class="icon icon-search"></button>
+                        </div>
+                    </form>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+    <!--шара fb-->
+    <div class="gk-col gk-col2">
+        <a href="#" class="icon icon-facebook"></a>
+    </div>
+</div>
+
+<!--примочка мега подвала уе-->
+<div class="gk-mega-footer">
+
+<!--выбор языка предлогаемого контента-->
+<div class="gk-lang gk-menu-lang">
+    <a href="#" class="btn-lang sel">на русско</a>
+    <a href="#" class="btn-lang">на немецком</a>
+</div>
+
+
+<div class="lang-panel">
+    <div class="gk-g-wrap">
+        <div class="gk-col gk-col6">
+            <a href="#" class="main-cat">книги</a>
+            <!--разделитель-->
+            <div class="gk-separator gk-40"></div>
+
+            <!--панель категорий, по аналогии делать для немецкого языка -->
+            <div class="gk-g-wrap gk-book-cat">
+                <div class="gk-col gk-col6">
+                    <ul class="nav nav-vertical gk-sub-cat">
+                        <li><a href="#">Биографии. Воспоминания</a></li>
+                        <li><a href="#">Букинистика</a></li>
+                        <li><a href="#">Естественные науки</a></li>
+                        <li><a href="#">Здоровье. Медицина</a></li>
+                        <li><a href="#">Иностранные языки. Языкознание</a></li>
+                        <li><a href="#">История</a></li>
+                        <li><a href="#">Книги-билингвы</a></li>
+                        <li><a href="#">Компьютерная литература</a></li>
+                        <li><a href="#">Кулинария</a></li>
+                        <li><a href="#">Культура. Искусство. Альбомы</a></li>
+                        <li><a href="#">Литературоведение. Языкознание</a></li>
+                    </ul>
+                </div>
+                <div class="gk-col gk-col6">
+                    <ul class="nav nav-vertical gk-sub-cat">
+                        <li><a href="#">Музыка</a></li>
+                        <li><a href="#">Немецкий язык и Германия</a></li>
+                        <li><a href="#">Подписные книжные издания</a></li>
+                        <li><a href="#">Психология</a></li>
+                        <li><a href="#">Путешествия</a></li>
+                        <li><a href="#">Религия. Религиоведение. Эзотерика</a></li>
+                        <li><a href="#">Справочники. Энциклопедии. Словари</a></li>
+                        <li><a href="#">Философия</a></li>
+                        <li><a href="#">Художественная литература</a></li>
+                        <li><a href="#">Хобби. Творчество</a></li>
+                        <li><a href="#">Разное</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="gk-col gk-col6">
+            <div class="gk-g-wrap">
+                <div class="gk-col gk-col4">
+                    <div class="gk-borders-v">
+                        <a href="#" class="main-cat">периодика</a>
+                        <a href="#" class="main-cat">музыка</a>
+                        <a href="#" class="main-cat">кино</a>
+                        <a href="#" class="main-cat gk-border-none">прочее</a>
+                        <ul class="nav nav-vertical gk-sub-cat">
+                            <li><a href="#">Наклейки на клавиатуру</a></li>
+                            <li><a href="#">Календари</a></li>
+                            <li class="gk-border-none"><a href="#">Канцелярские товары</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gk-col gk-col8">
+                    <div class="gk-g-wrap">
+                        <div class="gk-col gk-col6">
+                            <div class="gk-border-left gk-border-none">
+                                <a href="#" class="main-cat">дети</a>
+                                <ul class="nav nav-vertical gk-sub-cat">
+                                    <li><a href="#">Детская литература</a></li>
+                                    <li><a href="#">Музыка для детей</a></li>
+                                    <li><a href="#">Фильмы для детей</a></li>
+                                    <li><a href="#">Товары для детей</a></li>
+                                    <li class="gk-border-none"><a href="#">Учебники</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="gk-col gk-col6">
+                            <div class="gk-border-left">
+                                <a href="#" class="main-cat">гелион</a>
+                                <ul class="nav nav-vertical gk-sub-cat">
+                                    <li><a href="#">Как сделать заказ?</a></li>
+                                    <li><a href="#">Impressum</a></li>
+                                    <li><a href="#">Контакты</a></li>
+                                    <li><a href="#">Доставка и оплата</a></li>
+                                    <li><a href="#">Обратная связь</a></li>
+                                    <li class="gk-border-none"><a href="#">Вопросы и ответы</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--информация о доставке-->
+                    <div class="gk-delivery">
+                        <div class="image"></div>
+                        <div class="description">
+                            <p class="title gk-elem-first">Книжный магазин в Берлине.</p>
+
+                            <p>Рассылка книг, фильмов, аудиокниг и прессы по Германии.</p>
+
+                            <p><b>Доставка</b> во Францию, Австрию, Нидерланды, Швейцарию и другие страны
+                                Европы.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--панель категорий, по аналогии делать для немецкого языка -->
+<div class="lang-panel">
+    <div class="gk-g-wrap">
+        <div class="gk-col gk-col6">
+            <a href="#" class="main-cat">Bücher</a>
+            <!--разделитель-->
+            <div class="gk-separator gk-40"></div>
+
+            <div class="gk-g-wrap gk-book-cat">
+                <div class="gk-col gk-col6">
+                    <ul class="nav nav-vertical gk-sub-cat">
+                        <li><a href="#">Биографии. Воспоминания</a></li>
+                        <li><a href="#">Букинистика</a></li>
+                        <li><a href="#">Естественные науки</a></li>
+                        <li><a href="#">Здоровье. Медицина</a></li>
+                        <li><a href="#">Иностранные языки. Языкознание</a></li>
+                        <li><a href="#">История</a></li>
+                        <li><a href="#">Книги-билингвы</a></li>
+                        <li><a href="#">Компьютерная литература</a></li>
+                        <li><a href="#">Кулинария</a></li>
+                        <li><a href="#">Культура. Искусство. Альбомы</a></li>
+                        <li><a href="#">Литературоведение. Языкознание</a></li>
+                    </ul>
+                </div>
+                <div class="gk-col gk-col6">
+                    <ul class="nav nav-vertical gk-sub-cat">
+                        <li><a href="#">Музыка</a></li>
+                        <li><a href="#">Немецкий язык и Германия</a></li>
+                        <li><a href="#">Подписные книжные издания</a></li>
+                        <li><a href="#">Психология</a></li>
+                        <li><a href="#">Путешествия</a></li>
+                        <li><a href="#">Религия. Религиоведение. Эзотерика</a></li>
+                        <li><a href="#">Справочники. Энциклопедии. Словари</a></li>
+                        <li><a href="#">Философия</a></li>
+                        <li><a href="#">Художественная литература</a></li>
+                        <li><a href="#">Хобби. Творчество</a></li>
+                        <li><a href="#">Разное</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="gk-col gk-col6">
+            <div class="gk-g-wrap">
+                <div class="gk-col gk-col4">
+                    <div class="gk-borders-v">
+                        <a href="#" class="main-cat">периодика</a>
+                        <a href="#" class="main-cat">музыка</a>
+                        <a href="#" class="main-cat">кино</a>
+                        <a href="#" class="main-cat gk-border-none">прочее</a>
+                        <ul class="nav nav-vertical gk-sub-cat">
+                            <li><a href="#">Наклейки на клавиатуру</a></li>
+                            <li><a href="#">Календари</a></li>
+                            <li class="gk-border-none"><a href="#">Канцелярские товары</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gk-col gk-col8">
+                    <div class="gk-g-wrap">
+                        <div class="gk-col gk-col6">
+                            <div class="gk-border-left gk-border-none">
+                                <a href="#" class="main-cat">дети</a>
+                                <ul class="nav nav-vertical gk-sub-cat">
+                                    <li><a href="#">Детская литература</a></li>
+                                    <li><a href="#">Музыка для детей</a></li>
+                                    <li><a href="#">Фильмы для детей</a></li>
+                                    <li><a href="#">Товары для детей</a></li>
+                                    <li class="gk-border-none"><a href="#">Учебники</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="gk-col gk-col6">
+                            <div class="gk-border-left">
+                                <a href="#" class="main-cat">гелион</a>
+                                <ul class="nav nav-vertical gk-sub-cat">
+                                    <li><a href="#">Как сделать заказ?</a></li>
+                                    <li><a href="#">Impressum</a></li>
+                                    <li><a href="#">Контакты</a></li>
+                                    <li><a href="#">Доставка и оплата</a></li>
+                                    <li><a href="#">Обратная связь</a></li>
+                                    <li class="gk-border-none"><a href="#">Вопросы и ответы</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--информация о доставке-->
+                    <div class="gk-delivery">
+                        <div class="image"></div>
+                        <div class="description">
+                            <p class="title gk-elem-first">Книжный магазин в Берлине.</p>
+
+                            <p>Рассылка книг, фильмов, аудиокниг и прессы по Германии.</p>
+
+                            <p><b>Доставка</b> во Францию, Австрию, Нидерланды, Швейцарию и другие страны
+                                Европы.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<!--панель копирайтов-->
+<div class="gk-panel gk-panel-copyright">
+    <div class="gk-container">
+        <a href="#">Наши общие условия продажи</a>
+
+        <p class="gk-float-R gk-elem-alone">© 2014, Gelikon Europe GmbH "Russische Bücher"</p>
+    </div>
+</div>
+</div>
+<script type="text/javascript" src="js/plugins.js"></script>
+<script type="text/javascript" src="js/main-script.js"></script>
+</body>
+</html>

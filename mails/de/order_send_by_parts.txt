@@ -1,0 +1,11 @@
+
+[{shop_url}] 
+
+Hallo {firstname} {lastname}, 
+
+Wir möchten Sie darauf hinweisen, dass nicht alle Artikel aus Ihrer Bestellung {order_name} bei  {shop_name} vorrätig sind. Es kann daher zu Lieferverzögerung kommen.
+
+
+{shop_name} [{shop_url}] powered by
+PrestaShop(tm) [http://www.prestashop.com/] 
+

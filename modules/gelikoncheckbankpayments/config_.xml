@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>gelikoncheckbankpayments</name>
+	<displayName><![CDATA[Проверка оплаты заказов через банк]]></displayName>
+	<version><![CDATA[0.1]]></version>
+	<description><![CDATA[Проверка оплаты заказов со способом оплаты банковским переводом по выписке из банка в формате CSV.]]></description>
+	<author><![CDATA[Gelikon]]></author>
+	<tab><![CDATA[Catalog]]></tab>
+	<confirmUninstall><![CDATA[Действительно хотите удалить модуль?]]></confirmUninstall>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>

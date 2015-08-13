@@ -1,0 +1,32 @@
+/*стили для ишака восьмой модификации*/
+.gk-panel-header {
+    position: relative
+}
+
+.gk-panel-header .gk-about-shop {
+    left: 320px;
+    top: 40px;
+    width: auto;
+    position: absolute
+}
+
+.gk-panel-header .gk-about-shop a {
+    display: block;
+    width: 15px;
+    height: 117px;
+    background: url(../images/ie8/about-shop.jpg) 0 0;
+    text-indent: -9999px;
+    margin: 0
+}
+
+.gk-panel-header .gk-contacts {
+    margin-top: 35px
+}
+
+.gk-search-form .jq-selectbox__dropdown {
+    width: 220px
+}
+
+.gk-panel-footer .gk-search-form input {
+    padding: 5px
+}
