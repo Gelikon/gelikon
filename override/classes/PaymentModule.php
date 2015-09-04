@@ -1,6 +1,11 @@
 <?php
 abstract class PaymentModule extends PaymentModuleCore
 {
+    protected $book_rate = 7;
+    
+    protected $no_book_rate = 19;
+
+
     /**
 	* Validate an order in database
 	* Function called from a payment module
@@ -131,10 +136,31 @@ abstract class PaymentModule extends PaymentModuleCore
 
 					$order->total_shipping_tax_excl = (float)$this->context->cart->getPackageShippingCost((int)$id_carrier, false, null, $order->product_list);
 					$order->total_shipping_tax_incl = (float)$this->context->cart->getPackageShippingCost((int)$id_carrier, true, null, $order->product_list);
+                                        
+                                        
+                                        
 					$order->total_shipping = $order->total_shipping_tax_incl;
-					
-					if (!is_null($carrier) && Validate::isLoadedObject($carrier))
-						$order->carrier_tax_rate = $carrier->getTaxesRate(new Address($this->context->cart->{Configuration::get('PS_TAX_ADDRESS_TYPE')}));
+                                        
+                                        //определяем книга или нет
+                                        $cart_products = $this->context->cart->getProducts();
+                                        $all_books = Product::isBook($cart_products);
+                                        if($all_books){
+                                            $order->carrier_tax_rate = $this->book_rate;
+                                            //$order->total_shipping_tax_excl = $order->total_shipping - $order->total_shipping * $this->book_rate/100;
+                                            $shipping_tax_rate = $this->book_rate;
+                                            var_dump($shipping_tax_rate);
+                                            var_dump( $order->total_shipping);
+                                            $order->total_shipping_tax_excl = round($order->total_shipping * 100/(100+$shipping_tax_rate),2);
+                                        }else{
+                                            $order->carrier_tax_rate = $this->no_book_rate;
+                                           	//$order->total_shipping_tax_excl = $order->total_shipping - $order->total_shipping * $this->no_book_rate/100;
+                                            $shipping_tax_rate = $this->no_book_rate;
+                                            var_dump($shipping_tax_rate);
+                                            $order->total_shipping_tax_excl = round($order->total_shipping * 100/(100+$shipping_tax_rate),2);
+                                        }
+                    var_dump($order->total_shipping_tax_excl);
+//					if (!is_null($carrier) && Validate::isLoadedObject($carrier))
+//						$order->carrier_tax_rate = $carrier->getTaxesRate(new Address($this->context->cart->{Configuration::get('PS_TAX_ADDRESS_TYPE')}));
 
 					$order->total_wrapping_tax_excl = (float)abs($this->context->cart->getOrderTotal(false, Cart::ONLY_WRAPPING, $order->product_list, $id_carrier));
 					$order->total_wrapping_tax_incl = (float)abs($this->context->cart->getOrderTotal(true, Cart::ONLY_WRAPPING, $order->product_list, $id_carrier));
@@ -148,9 +174,8 @@ abstract class PaymentModule extends PaymentModuleCore
 					$order->delivery_date = '0000-00-00 00:00:00';
 
 					// Creating order
-					//var_dump($order);
 					$result = $order->add();
-					//var_dump($result);
+
 					if (!$result)
 						throw new PrestaShopException('Can\'t save Order');
 
@@ -666,7 +691,7 @@ abstract class PaymentModule extends PaymentModuleCore
 
                                                 $pdf_info = new PDF($order, 'info', $this->context->smarty);
                                                 $file_attachement_info['content'] = $pdf_info->render(false);
-                                                $file_attachement_info['name'] = 'test.pdf';
+                                                $file_attachement_info['name'] = 'AGB.pdf';
                                                 $file_attachement_info['mime'] = 'application/pdf';
                                                 $file_attachement[] = $file_attachement_info;
                                                 if($file_attachement_invoice)
