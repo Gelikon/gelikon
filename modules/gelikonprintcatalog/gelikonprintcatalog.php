@@ -123,8 +123,9 @@ class Gelikonprintcatalog extends Module
 			{
 				//Выполняем запрос
 				//SELECT p.id_product, f9.author, pl.name, pl.description, CONCAT_WS(' ',f14.izdat, f10.god, f11.pereplet, f12.stranits, IFNULL(CONCAT('€ ',ROUND(p.price,2)), NULL)) as info, p.reference, /*lcp.id_category, lcp.level_depth,*/ cl.name, /*fp.id_feature, fl.name, fvl.value */
+				//SELECT p.id_product, f9.author, pl.name as prod_name, pl.description, CONCAT_WS(' ',f14.izdat, f10.god, f11.pereplet, f12.stranits, IFNULL(CONCAT('€ ',ROUND(p.price,2)), NULL)) as info, p.reference, cl.name as cat_name
 				$sql = "
-					SELECT p.id_product, f9.author, pl.name as prod_name, pl.description, CONCAT_WS(' ',f14.izdat, f10.god, f11.pereplet, f12.stranits, IFNULL(CONCAT('€ ',ROUND(p.price,2)), NULL)) as info, p.reference, cl.name as cat_name
+					SELECT p.id_product, f9.author, pl.name as prod_name, pl.description, f14.izdat, f10.god, f11.pereplet, f12.stranits, p.price, p.reference, cl.name as cat_name
 					
 					FROM "._DB_PREFIX_."product as p
 					INNER JOIN
@@ -153,7 +154,7 @@ class Gelikonprintcatalog extends Module
 					ON p.id_product = f10.id_product
 
 					LEFT JOIN
-					(SELECT id_product, fvl.id_feature_value, IFNULL(CONCAT(SUBSTRING(fvl.value,1, 3), '.'), NULL)  as pereplet FROM
+					(SELECT id_product, fvl.id_feature_value, IFNULL(CONCAT(fvl.value, '.'), NULL)  as pereplet FROM
 					"._DB_PREFIX_."feature_product AS fp
 					LEFT JOIN "._DB_PREFIX_."feature_value_lang AS fvl ON fp.id_feature_value = fvl.id_feature_value
 					WHERE fvl.id_lang =1 AND fp.id_feature = 11) as f11
@@ -201,6 +202,8 @@ class Gelikonprintcatalog extends Module
 					WHERE pl.id_lang = 1 AND pl.id_shop = 1 AND fvl.id_lang =1 AND fp.id_feature = 8 AND fvl.value='".$num_catalog."'
 					GROUP BY p.id_product
 				";
+				var_dump($sql); 
+				
 				if ($results = Db::getInstance()->ExecuteS($sql))
 				{
 					//Формируем CSV файл и выводим в браузер
@@ -222,8 +225,12 @@ class Gelikonprintcatalog extends Module
 				    	{	
 
 				    		//$line['description'] = convert_html_to_text($line['description']);
-				    		$html2text = new \Html2Text\Html2Text($line['description'], false, array('do_links' => 'none'));
+				    		$this->_html .= $line['description']."<br/>";
+				    		$html2text = new \Html2Text\Html2Text($line['description'], false, array('do_links' => 'none','width' => 0));
         					$line['description'] = $html2text->get_text();
+        					$id_product = $line['id_product'];
+							$price_withtaxes = Product::getPriceStatic($id_product);
+        					$line['price'] = "€ ".$price_withtaxes;
 				    		fputcsv($f, $line, $delimiter);
 				    		$num_products++;
 				    	}
