@@ -27,7 +27,7 @@
 {else}
 	{assign var=class_input_ajax value=''}
 {/if}
-
+trololo
 <div id="product-informations" class="panel product-tab">
 	<input type="hidden" name="submitted_tabs[]" value="Informations" />
 	<h3 class="tab"> <i class="icon-info"></i> {l s='Information'}</h3>
@@ -173,7 +173,7 @@
 			<input maxlength="13" type="text" id="ean13" name="ean13" value="{$product->ean13|htmlentitiesUTF8}" />
 		</div>
 	</div>
-
+	{$product->id} 123
 	<div class="form-group">
 		<label class="control-label col-lg-3" for="upc">
 			<span class="label-tooltip" data-toggle="tooltip"
