@@ -134,7 +134,7 @@
 					<div class="gk-align-R">
 
 						<!--сюда из базы вписывается значение из базы-->
-						<input type="hidden" value="{displayPrice price=$global_order_total}" id="value">
+						<input type="hidden" value="{displayPrice price=$products_total_wt}" id="value">
 
 						<div class="delivery-price">{l s='Доставка:'} <span>
 						{if isset($current_delivery_price)}
@@ -142,7 +142,7 @@
 						{else}
 							{l s='Нет доставки по выбранному адресу'}
 						{/if}</span></div>
-						<div class="total-price">{l s='Всего:'} <span>{displayPrice price=$global_order_total}</span></div>
+						<div class="total-price">{l s='Всего за товары:'} <span>{displayPrice price=$products_total_wt}</span></div>
 						{if !$is_guest}
 							{if $back}
 							{else}

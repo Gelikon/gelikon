@@ -73,7 +73,7 @@
                                 
                                 
 				<div class="gk-align-R">
-					<div class="total-price">{l s='Всего:'} <span>{displayPrice price=$global_order_total}</span></div>
+					<div class="total-price">{l s='Всего:'} <span>{displayPrice price=$products_total_wt}</span></div>
 					<button type="submit" name="processAddress" class="button btn btn-default button-medium">
 						<span>{l s='Далее'}<i class="icon-chevron-right right"></i></span>
 					</button>
