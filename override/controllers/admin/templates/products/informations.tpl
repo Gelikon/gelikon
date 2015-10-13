@@ -448,6 +448,10 @@ $('a#print_barcode').click(function(e) {
 		</div>
 	</div>
 	{/if}
+    <div class="form-group">
+        <div class="col-lg-3">{l s='Link to stock'}</div>
+        <div class="col-lg-9"><a href="{$link->getAdminLink('AdminStockManagement')|escape:'html':'UTF-8'}&addstock&id_product={$product->id}">{l s='Link to stock'}</a></div>
+    </div>
 
 	<div class="form-group">
 		<label class="control-label col-lg-3" for="tags_{$id_lang}">
