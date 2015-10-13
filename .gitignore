@@ -10,7 +10,7 @@ img/p/8
 img/p/9
 log/
 error_log
-cache
-config
-img/tmp
+/cache/
+/config/
+/img/tmp/
 .ftpquota
