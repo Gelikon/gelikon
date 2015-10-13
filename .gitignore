@@ -12,3 +12,5 @@ log/
 error_log
 cache
 config
+img/tmp
+.ftpquota
