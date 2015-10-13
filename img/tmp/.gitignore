@@ -1,0 +1,5 @@
+# Ignore any file in this directory except for this file 
+*
+!/.gitignore
+!/cms/
+!/cms/.gitignore
