@@ -204,6 +204,7 @@ class Import extends Module {
         $line[1] = trim($line[1]);
         if (is_numeric($line[1])) $result['reference'] = sprintf("%09s", $line[1]); else return null;
 
+       /*
         $line[2] = $this->prepareCategory(trim($line[2]), $line[0]);
         if (empty($line[2])) return null; else $result['category'] = $line[2];
 
@@ -261,6 +262,7 @@ class Import extends Module {
         }
         //var_dump($result);
         //echo "<br/><br/>";
+        */
         return $result;
     }
 
@@ -305,16 +307,16 @@ class Import extends Module {
             $read_lines = 0;
        
             while( $line = fgetcsv($file)) {
-                
+       
                 if (count($line) == 20 && $line = $this->prepareArray($line)) {
-                    
+             
                     $this->upsert($line);
                     $imported_lines ++;
                 }
                 
                 $read_lines++;
             }
-            $content .= "Импортировано строк: ".$imported_lines."</br>Прочитано строк: ".$read_lines;
+            $content .= "Обработано строк для подгрузки картинок: ".$imported_lines."</br>Прочитано строк: ".$read_lines;
         }
         else {
             $content .= "Файл не найден";
@@ -326,114 +328,7 @@ class Import extends Module {
         $product = DB::getInstance()->getValue("SELECT `id_product` FROM `" . _DB_PREFIX_ . "product` WHERE `reference` LIKE '{$line['reference']}'");
         $product = new Product($product);
 
-        $product->reference = $line['reference'];
-        $product->name = array(
-            '1' => $line['name'],
-            '2' => $line['name'],
-            '3' => $line['name']
-        );
-        $product->description = array(
-            '1' => $line['description'],
-            '2' => $line['description'],
-            '3' => $line['description']
-        );
-        $product->description_short = array(
-            '1' => $line['description_short'],
-            '2' => $line['description_short'],
-            '3' => $line['description_short']
-        );
-        $product->link_rewrite = array(
-            '1' => Tools::link_rewrite($line['name']),
-            '2' => Tools::link_rewrite($line['name']),
-            '3' => Tools::link_rewrite($line['name'])
-        );
-        $product->available_now = array(
-            '1' => "Есть в наличии",
-            '2' => "Есть в наличии",
-            '3' => "Есть в наличии"
-        );
-        $product->id_category_default = $line['category'];
-        $product->quantity = (int)$line['count'];
 
-        $product->advanced_stock_management = 1; //использовать Advanced Stock management
-        $product->depends_on_stock = 1; //1 - доступное количество на основе ASM. 0 - указывается вручную
-        $product->out_of_stock = 1; //2 - как в Preferences product. 1 - allow (Как в Preferences - не дает заказать товар на сайте)
-
-        $product->price = $line['price'];
-        $product->weight = $line['weight'] / 1000;
-        $product->id_tax_rules_group = $line['id_tax'];
-
-        $product->save();
-
-        $product->updateCategories(array($line['category']));
-
-        $product->deleteFeatures();
-        if ($line['author']) {
-            $id_feature_value = FeatureValue::addFeatureValueImport(9, $line['author'], null, Configuration::get('PS_LANG_DEFAULT'));
-            Product::addFeatureProductImport($product->id, 9, $id_feature_value);
-        }
-
-        if ($line['year']) {
-            $id_feature_value = FeatureValue::addFeatureValueImport(10, $line['year'], null, Configuration::get('PS_LANG_DEFAULT'));
-            Product::addFeatureProductImport($product->id, 10, $id_feature_value);
-        }
-
-        if ($line['paperback']) {
-            if ($line['paperback'] == 1) $id_feature_value =  1;
-            else $id_feature_value = 2;
-            //$id_feature_value = FeatureValue::addFeatureValueImport(11, $line['paperback'], null, Configuration::get('PS_LANG_DEFAULT'));
-            Product::addFeatureProductImport($product->id, 11, $id_feature_value); //1 - id значения "твёрдый переплёт" у харакатеристики "Переплёт", 149226 - мягкая обложка
-        }
-
-        if ($line['pages']) {
-            $id_feature_value = FeatureValue::addFeatureValueImport(12, $line['pages'], null, Configuration::get('PS_LANG_DEFAULT'), true);
-            Product::addFeatureProductImport($product->id, 12, $id_feature_value);
-        }
-
-        /*
-        if ($line['weight']) {
-            $id_feature_value = FeatureValue::addFeatureValueImport(4, $line['weight'], null, Configuration::get('PS_LANG_DEFAULT'), true);
-            Product::addFeatureProductImport($product->id, 4, $id_feature_value);
-        }
-        */
-
-        if ($line['isbn']) {
-            $id_feature_value = FeatureValue::addFeatureValueImport(13, $line['isbn'], null, Configuration::get('PS_LANG_DEFAULT'), true);
-            Product::addFeatureProductImport($product->id, 13, $id_feature_value);
-        }
-
-        if ($line['publishing']) {
-            $id_feature_value = FeatureValue::addFeatureValueImport(14, $line['publishing'], null, Configuration::get('PS_LANG_DEFAULT'), true);
-            Product::addFeatureProductImport($product->id, 14, $id_feature_value);
-        }
-
-        $location = WarehouseProductLocation::getIdByProductAndWarehouse($product->id, 0, $line['warehouse']);
-        $location = new WarehouseProductLocation($location);
-        $location->id_product = $product->id;
-        $location->id_product_attribute = 0;
-        $location->id_warehouse = $line['warehouse'];
-        $location->save();
-
-        $stock = DB::getInstance()->getValue("SELECT `id_stock` FROM `" . _DB_PREFIX_ . "stock` WHERE `id_product` = {$product->id} AND `id_warehouse` = {$line['warehouse']}");
-        $stock = new Stock($stock);
-        $stock->id_product = $product->id;
-        $stock->id_product_attribute = 0;
-        $stock->id_warehouse = $line['warehouse'];
-        $stock->physical_quantity = $line['count'];
-        $stock->usable_quantity = $line['count'];
-        $stock->price_te = 0;
-        $stock->save();
-
-        $available = DB::getInstance()->getValue("SELECT `id_stock_available` FROM `". _DB_PREFIX_ . "stock_available` WHERE `id_product` = {$product->id} AND `id_shop` = " . Context::getContext()->shop->id);
-        $available = new StockAvailable($available);
-        $available->id_product = $product->id;
-        $available->id_product_attribute = 0;
-        //$available->id_shop = Context::getContext()->shop->id;
-        $available->quantity = StockManagerFactory::getManager()->getProductPhysicalQuantities($product->id, 0);
-        $available->save();
-
-        StockAvailable::setProductDependsOnStock($product->id, true, null);
-        StockAvailable::setProductOutOfStock($product->id, 1, null); //allow
 
         while(strlen($line['reference']) < 9) {
             $line['reference'] = '0' . $line['reference'];
