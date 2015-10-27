@@ -45,6 +45,10 @@ class Import extends Module {
 
     public function getContent() {
         $content = '<div class="bootstrap panel">';
+        if (Tools::isSubmit('submitSetAllProdsASM')) {
+            $this->set_all_products_asm();
+            $content .= '<h2>Всем товарам установлен Advanced Stock Management</h2>';
+        }
         if (Tools::isSubmit('submitImport')) {
             $this->import();
             $content .= '<h2>Импорт завершен</h2>';
@@ -52,6 +56,7 @@ class Import extends Module {
 
         $content .= '<form action="" method="post">';
         $content .= '<input type="submit" class="button" name="submitImport" id="import-button" value="Import">';
+        $content .= '<input type="submit" class="button" name="submitSetAllProdsASM" id="import-button" value="Set all product ASM">';
         $content .= '</form>';
         /*
         $content .= '<progress id="import-progress" value="0" max="100" style="margin-left: 20px; display: none;"></progress>';
@@ -322,9 +327,35 @@ class Import extends Module {
         ddd($content);
     }
 
+    public function set_all_products_asm(){
+        $all_products = DB::getInstance()->executeS("SELECT `id_product` FROM `" . _DB_PREFIX_ . "product`");
+        var_dump($all_products);
+        if (!is_null($all_products)){
+            foreach ($all_products as $product) {
+                $id_product = $product["id_product"];
+                //$product = new Product($product["id_product"]);   
+                //установка ASM=1 для текущего магазина (в PS устанавливается в таблице product и product_shop)
+                //$product->advanced_stock_management = 1; //использовать Advanced Stock management 
+                //$product->save();
+                $depends_on_stock = true;
+                $out_of_stock = 1; //2 - как в Preferences product. 1 - allow (ставь 1, т.к. 2 (как в Preferences) не дает заказать товар на сайте)  
+                for ($id_shop = 1; $id_shop<=4; $id_shop++){
+                    StockAvailable::setProductDependsOnStock($id_product, $depends_on_stock, $id_shop);   
+                }
+                /*  для магазина 2,3 запретить продажу, если нет в наличии. out_of_stock = 0
+                    2   Second shop Gelikon 
+                    3   First shop Gelikon
+                */
+                StockAvailable::setProductOutOfStock($id_product, $out_of_stock, 2);
+                StockAvailable::setProductOutOfStock($id_product, $out_of_stock, 3);
+            }
+        }
+    }
+
     private function upsert($line) {
         $product = DB::getInstance()->getValue("SELECT `id_product` FROM `" . _DB_PREFIX_ . "product` WHERE `reference` LIKE '{$line['reference']}'");
         $product = new Product($product);
+
 
         $product->reference = $line['reference'];
         $product->name = array(

@@ -13,3 +13,8 @@ error_log
 .ftpquota
 !/cache/.gitignore
 cache/**
+!/upload/.gitignore
+!/upload/import/.gitignore
+!/upload/import/csv/.gitignore
+upload/import/**
+!/upload/import/csv/

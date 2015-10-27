@@ -1,0 +1,5 @@
+игнорировать все файлы кроме gitignore
+*
+!.gitignore
+!import/.gitignore
+!/import/.gitignore
