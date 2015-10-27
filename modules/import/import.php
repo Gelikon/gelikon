@@ -346,8 +346,17 @@ class Import extends Module {
                     2   Second shop Gelikon 
                     3   First shop Gelikon
                 */
+                $out_of_stock = 0;
                 StockAvailable::setProductOutOfStock($id_product, $out_of_stock, 2);
                 StockAvailable::setProductOutOfStock($id_product, $out_of_stock, 3);
+                /*
+                    Для online и заказов по телефону разрешить заказ товара, которого нет в наличии
+                    1 Gelikon DE online
+                    4 Заказы по телефону
+                */
+                $out_of_stock = 1;
+                StockAvailable::setProductOutOfStock($id_product, $out_of_stock, 1);
+                StockAvailable::setProductOutOfStock($id_product, $out_of_stock, 4);
             }
         }
     }
