@@ -53,20 +53,10 @@ class Import extends Module {
             $this->import();
             $content .= '<h2>Импорт завершен</h2>';
         }
-        if (Tools::isSubmit('submitStockFactory')) {
-            $this->submitStockFactory();
-            $content .= '<h2>Импортирован через StockManagerFactory</h2>';
-        }
-        if (Tools::isSubmit('get_current_stock')) {
-            $this->get_current_stock();
-            $content .= '<h2>Взяли количество на складе</h2>';
-        }
-        
+
         $content .= '<form action="" method="post">';
         $content .= '<input type="submit" class="button" name="submitImport" id="import-button" value="Import">';
         $content .= '<input type="submit" class="button" name="submitSetAllProdsASM" id="import-button" value="Set all product ASM">';
-        $content .= '<input type="submit" class="button" name="submitStockFactory" id="import-button" value="Import via Stock Manager Factory">';
-        $content .= '<input type="submit" class="button" name="get_current_stock" id="import-button" value="Получить остаток на складе">';
         $content .= '</form>';
         /*
         $content .= '<progress id="import-progress" value="0" max="100" style="margin-left: 20px; display: none;"></progress>';
@@ -337,118 +327,9 @@ class Import extends Module {
         ddd($content);
     }
 
-    public function submitStockFactory(){
-        //$this->set_all_products_asm();
-        //получить количества товаров на складах из временной таблицы
-        if ($temp_stocks = DB::getInstance()->ExecuteS("
-                   
-                     SELECT p.`id_product`, `id_warehouse`, `f_quantity`, `u_quantity`, `d_quantity` 
-                     FROM `" . _DB_PREFIX_ . "temp_stock` as ts right join " . _DB_PREFIX_ . "product as p on p.id_product = ts.`id_product`
-                ")){
-            foreach ($temp_stocks as $row) {
-                $id_product = $row['id_product'];
-                $id_product_attribute = 0;
-                $id_stock_mvt_reason = 4;
-                $price = 1;
-                $id_currency = 1;
-                $id_warehouse = $row['id_warehouse'];
-                $warehouse = new Warehouse($id_warehouse);
-                $stock_manager = StockManagerFactory::getManager();
-                
-                //сначала добавить юзабл, поптому что оно меньше, потом, если есть разница, добавить дельту как неюзабл, чтобы чисто в физические товары попало
-                if ($row['d_quantity'] !=0) {
-                    $is_usable = true;
-                    $quantity = $row['u_quantity'];
-                    // add stock
-                    if ($stock_manager->addProduct($id_product, $id_product_attribute, $warehouse, $quantity, $id_stock_mvt_reason, $price, $is_usable))
-                    {
-                        StockAvailable::synchronize($id_product);
-                    }
-                    else
-                        $errors[] = Tools::displayError('An error occurred. No stock was added.');
-
-                    $is_usable = false;
-                    $quantity = $row['d_quantity'];
-                     // add stock
-                    if ($stock_manager->addProduct($id_product, $id_product_attribute, $warehouse, $quantity, $id_stock_mvt_reason, $price, $is_usable))
-                    {
-                        StockAvailable::synchronize($id_product);
-                    }
-                    else
-                        $errors[] = Tools::displayError('An error occurred. No stock was added.');
-                }
-
-                else {
-                    //добавляем товар для продажи на склад
-                    $is_usable = true;
-                    $quantity = $row['f_quantity'];
-                      // add stock
-                    if ($stock_manager->addProduct($id_product, $id_product_attribute, $warehouse, $quantity, $id_stock_mvt_reason, $price, $is_usable))
-                    {
-                        StockAvailable::synchronize($id_product);
-                    }
-                    else
-                        $errors[] = Tools::displayError('An error occurred. No stock was added.');
-                }
-            }
-        }
-        if (isset($errors))
-        return $errors;
-    }
-
-    public function get_current_stock() {
-        
-        
-        $PhysicalQuantities = New StockManager;
-        // Получить список товаров в магазине
-        $all_products = DB::getInstance()->executeS("SELECT `id_product` FROM `" . _DB_PREFIX_ . "product`");
-        if (!is_null($all_products)){
-            foreach ($all_products as $product) {
-                $id_product = $product["id_product"];
-                $id_product_attribute = 0;
-                //  к-во товара на первом складе
-                $id_warehouse = 1;
-                $usable = false; //physical
-                $f_quantity = $PhysicalQuantities->getProductPhysicalQuantities($id_product, $id_product_attribute, $id_warehouse, $usable);
-                $usable = true; // usable
-                $u_quantity = $PhysicalQuantities->getProductPhysicalQuantities($id_product, $id_product_attribute, $id_warehouse, $usable);
-                $d_quantity = $f_quantity-$u_quantity;
-
-                //сохранять в временную таблицу, если есть физ кол-во на этом складе
-                if ($f_quantity>0){
-                    Db::getInstance()->insert('temp_stock', array(
-                        'id_product' => $id_product,
-                        'id_warehouse'=> $id_warehouse,
-                        'f_quantity' =>  $f_quantity,
-                        'u_quantity' =>  $u_quantity,
-                        'd_quantity' =>  $d_quantity,
-                    ));
-                }
-                
-                // к-во товароа на втором складе
-                $id_warehouse = 2;
-                $usable = false; //physical
-                $f_quantity = $PhysicalQuantities->getProductPhysicalQuantities($id_product, $id_product_attribute, $id_warehouse, $usable);
-                $usable = true; // usable
-                $u_quantity = $PhysicalQuantities->getProductPhysicalQuantities($id_product, $id_product_attribute, $id_warehouse, $usable);
-                $d_quantity = $f_quantity-$u_quantity;
-
-                //сохранять в временную таблицу, если есть физ кол-во на этом складе
-                if ($f_quantity>0){
-                    Db::getInstance()->insert('temp_stock', array(
-                        'id_product' => $id_product,
-                        'id_warehouse'=> $id_warehouse,
-                        'f_quantity' =>  $f_quantity,
-                        'u_quantity' =>  $u_quantity,
-                        'd_quantity' =>  $d_quantity,
-                    ));
-                }
-            }
-        }
-    }
-
     public function set_all_products_asm(){
         $all_products = DB::getInstance()->executeS("SELECT `id_product` FROM `" . _DB_PREFIX_ . "product`");
+        var_dump($all_products);
         if (!is_null($all_products)){
             foreach ($all_products as $product) {
                 $id_product = $product["id_product"];
