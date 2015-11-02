@@ -36,7 +36,7 @@
            
             <!--панель категорий, по аналогии делать для немецкого языка -->
             <div class="gk-g-wrap gk-book-cat">
-                <div style="position: absolute;top: 3px;left: 303px;"><a class="new_products_footer_link" href="{$link->getPageLink('new-products')}">{l s='Новинки'}</a></div>
+
                 {if !empty($category1['children'])}
                     {$column=ceil(count($category1['children'])/2)}
                     {foreach from=$category1['children'] item=sub name=sub}
@@ -105,7 +105,7 @@
                         </div>
                         <div class="gk-col gk-col6">
                             {if $category4 != null}
-                                <div class="gk-border-left">
+                                <!--<div class="gk-border-left bbb">
                                     <a href="{$category4['link']}" class="main-cat">{$category4['name']}</a>
                                     {if !empty($category4['pages'])}
                                         <ul class="nav nav-vertical gk-sub-cat">
@@ -114,7 +114,20 @@
                                             {/foreach}
                                         </ul>
                                     {/if}
-                                </div>
+                                </div>-->
+                                <div class="gk-border-left bbb">
+                                    <a href="http://gelikonrepository.de/index.php?id_cms_category=2&amp;controller=cms&amp;id_lang=1" class="main-cat">Геликон</a>
+                                                                            <ul class="nav nav-vertical gk-sub-cat">
+                                                                                            <li class=""><a href="http://gelikonrepository.de/index.php?id_cms=7&amp;controller=cms&amp;id_lang=1">Impressum</a></li>
+                                                                                            <li class="feedback_form_link" title="{l s='Обратная связь'}"><a href="">{l s='Обратная связь'}</a></li>
+                                                                                            <li class=""><a href="http://gelikonrepository.de/index.php?id_cms=8&amp;controller=cms&amp;id_lang=1">Контакты</a></li>
+                                                                                            <li class=""><a href="http://gelikonrepository.de/index.php?id_cms=9&amp;controller=cms&amp;id_lang=1">Стоимость доставки</a></li>
+                                                                                            <li class=""><a href="http://gelikonrepository.de/index.php?id_cms=14&amp;controller=cms&amp;id_lang=1">AGB</a></li>
+                                                                                            <li class=""><a href="http://gelikonrepository.de/index.php?id_cms=15&amp;controller=cms&amp;id_lang=1">Datenschutz</a></li>
+                                                                                            <li class=""><a href="http://gelikonrepository.de/index.php?id_cms=16&amp;controller=cms&amp;id_lang=1">Widerruf</a></li>
+                                                                                            <li class="gk-border-none"><a href="http://gelikonrepository.de/index.php?id_cms=17&amp;controller=cms&amp;id_lang=1">Zahlung und Versand</a></li>
+                                                                                    </ul>
+                                                                    </div>
                             {/if}
                         </div>
                     </div>
@@ -131,7 +144,32 @@
                             </p>
                         </div>
                     </div>
-                    <a class="feedback_form_link" title="{l s='Обратная связь'}" href="">{l s='Обратная связь'}</a>
+                    <!--<a class="feedback_form_link" title="{l s='Обратная связь'}" href="">{l s='Обратная связь'}</a>-->
+                    <div class="gk-subscribe specnew">
+                    <div class="title">Подписаться на новости</div>
+                    
+                    <div id="mc_embed_signup">
+                        <form action="http://casetamatic.us3.list-manage.com/subscribe/post?u=35ec21a452d57143a16dce4b2&amp;id=5d8ceaa53a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+                            <div class="mc-field-group">
+                                <label for="mce-EMAIL"></label>
+                                <input type="email" value="" name="EMAIL" class="required email" placeholder="мой e-mail" id="mce-EMAIL">
+                            </div>
+                            <div id="mce-responses" class="clear">
+                                <div class="response" id="mce-error-response" style="display:none"></div>
+                                <div class="response" id="mce-success-response" style="display:none"></div>
+                            </div>
+                            
+
+                            <div style="position: absolute; left: -5000px;">
+                                <input type="text" name="b_35ec21a452d57143a16dce4b2_5d8ceaa53a" tabindex="-1" value="">
+                            </div>
+                            <input type="submit" value="ok" name="subscribe" id="mc-embedded-subscribe" class="button">
+
+                            <div class="gk-clear-fix"></div>
+                        </form>
+                    </div>
+
+                    </div>
                     <div style="display: none;">
                     <div class="box-modal" id="exampleModal">
                         <div class="box-modal_close arcticmodal-close">x</div>
@@ -251,7 +289,7 @@
                         </div>
                         <div class="gk-col gk-col6">
                             {if $category4 != null}
-                                <div class="gk-border-left">
+                                <div class="gk-border-left ddd">
                                     <a href="{$category4['link']}" class="main-cat">{$category4['name']}</a>
                                     {if !empty($category4['pages'])}
                                         <ul class="nav nav-vertical gk-sub-cat">

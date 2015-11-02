@@ -1,6 +1,6 @@
 <?php
 /*
-* 2007-2014 PrestaShop
+* 2007-2015 PrestaShop
 *
 * NOTICE OF LICENSE
 *
@@ -19,7 +19,7 @@
 * needs please refer to http://www.prestashop.com for more information.
 *
 *  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2014 PrestaShop SA
+*  @copyright  2007-2015 PrestaShop SA
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 */
@@ -33,11 +33,11 @@ class BlockCategories extends Module
 	{
 		$this->name = 'blockcategories';
 		$this->tab = 'front_office_features';
-		$this->version = '2.8';
+		$this->version = '2.9.1';
 		$this->author = 'PrestaShop';
 
 		$this->bootstrap = true;
-		parent::__construct();	
+		parent::__construct();
 
 		$this->displayName = $this->l('Categories block');
 		$this->description = $this->l('Adds a block featuring product categories.');
@@ -49,7 +49,7 @@ class BlockCategories extends Module
 		// Prepare tab
 		$tab = new Tab();
 		$tab->active = 1;
-		$tab->class_name = "AdminBlockCategories";
+		$tab->class_name = 'AdminBlockCategories';
 		$tab->name = array();
 		foreach (Language::getLanguages(true) as $lang)
 			$tab->name[$lang['id_lang']] = 'BlockCategories';
@@ -60,6 +60,7 @@ class BlockCategories extends Module
 			!parent::install() ||
 			!$this->registerHook('footer') ||
 			!$this->registerHook('header') ||
+			!$this->registerHook('leftColumn') ||
 			// Temporary hooks. Do NOT hook any module on it. Some CRUD hook will replace them as soon as possible.
 			!$this->registerHook('categoryAddition') ||
 			!$this->registerHook('categoryUpdate') ||
@@ -70,25 +71,15 @@ class BlockCategories extends Module
 			!Configuration::updateValue('BLOCK_CATEG_MAX_DEPTH', 4) ||
 			!Configuration::updateValue('BLOCK_CATEG_DHTML', 1) ||
 			!Configuration::updateValue('BLOCK_CATEG_ROOT_CATEGORY', 1))
-			return false;
+				return false;
 
-		// Hook the module either on the left or right column
-		$theme = new Theme(Context::getContext()->shop->id_theme);
-		if ((!$theme->default_left_column || !$this->registerHook('leftColumn'))
-			&& (!$theme->default_right_column || !$this->registerHook('rightColumn')))
-		{
-			// If there are no colums implemented by the template, throw an error and uninstall the module
-			$this->_errors[] = $this->l('This module need to be hooked in a column and your theme does not implement one');
-			parent::uninstall();
-			return false;
-		}
 		return true;
 	}
 
 	public function uninstall()
 	{
 		$id_tab = (int)Tab::getIdFromClassName('AdminBlockCategories');
-		
+
 		if ($id_tab)
 		{
 			$tab = new Tab($id_tab);
@@ -136,23 +127,26 @@ class BlockCategories extends Module
 	{
 		if (is_null($id_category))
 			$id_category = $this->context->shop->getCategory();
-
 		$children = array();
 		if (isset($resultParents[$id_category]) && count($resultParents[$id_category]) && ($maxDepth == 0 || $currentDepth < $maxDepth))
 			foreach ($resultParents[$id_category] as $subcat)
 				$children[] = $this->getTree($resultParents, $resultIds, $maxDepth, $subcat['id_category'], $currentDepth + 1);
-
-		if (!isset($resultIds[$id_category]))
-			return false;
-		
+		if (isset($resultIds[$id_category])) 
+		{
+			$link = $this->context->link->getCategoryLink($id_category, $resultIds[$id_category]['link_rewrite']);
+			$name = $resultIds[$id_category]['name'];
+			$desc = $resultIds[$id_category]['description'];
+		}
+		else
+			$link = $name = $desc = '';
+			
 		$return = array(
 			'id' => $id_category,
-			'link' => $this->context->link->getCategoryLink($id_category, $resultIds[$id_category]['link_rewrite']),
-			'name' =>  $resultIds[$id_category]['name'],
-			'desc'=>  $resultIds[$id_category]['description'],
+			'link' => $link,
+			'name' => $name,
+			'desc'=> $desc,
 			'children' => $children
 		);
-
 		return $return;
 	}
 
@@ -161,10 +155,10 @@ class BlockCategories extends Module
 		$category = new Category((int)Tools::getValue('id_category'));
 		$files   = array();
 
-		if ($category->level_depth != 2)
+		if ($category->level_depth < 1)
 			return;
 
-		for ($i=0;$i<3;$i++)
+		for ($i = 0; $i < 3; $i++)
 		{
 			if (file_exists(_PS_CAT_IMG_DIR_.(int)$category->id.'-'.$i.'_thumb.jpg'))
 			{
@@ -188,11 +182,16 @@ class BlockCategories extends Module
 		$phpself = $this->context->controller->php_self;
 		$current_allowed_controllers = array('category');
 
-		$from_category = Configuration::get('PS_HOME_CATEGORY');
 		if ($phpself != null && in_array($phpself, $current_allowed_controllers) && Configuration::get('BLOCK_CATEG_ROOT_CATEGORY') && isset($this->context->cookie->last_visited_category) && $this->context->cookie->last_visited_category)
-			$from_category = $this->context->cookie->last_visited_category;
-
-		$category = new Category($from_category, $this->context->language->id);
+		{
+			$category = new Category($this->context->cookie->last_visited_category, $this->context->language->id);
+			if (Configuration::get('BLOCK_CATEG_ROOT_CATEGORY') == 2 && !$category->is_root_category && $category->id_parent)
+				$category = new Category($category->id_parent, $this->context->language->id);
+			elseif (Configuration::get('BLOCK_CATEG_ROOT_CATEGORY') == 3 && !$category->is_root_category && !$category->getSubCategories($category->id, true))
+				$category = new Category($category->id_parent, $this->context->language->id);
+		}
+		else
+			$category = new Category((int)Configuration::get('PS_HOME_CATEGORY'), $this->context->language->id);
 
 		$cacheId = $this->getCacheId($category ? $category->id : null);
 
@@ -200,11 +199,11 @@ class BlockCategories extends Module
 		{
 			$range = '';
 			$maxdepth = Configuration::get('BLOCK_CATEG_MAX_DEPTH');
-			if ($category)
+			if (Validate::isLoadedObject($category))
 			{
 				if ($maxdepth > 0)
 					$maxdepth += $category->level_depth;
-				$range = 'AND nleft >= '.$category->nleft.' AND nright <= '.$category->nright;
+				$range = 'AND nleft >= '.(int)$category->nleft.' AND nright <= '.(int)$category->nright;
 			}
 
 			$resultIds = array();
@@ -293,7 +292,7 @@ class BlockCategories extends Module
 				'.Shop::addSqlAssociation('category', 'c').'
 				LEFT JOIN `'._DB_PREFIX_.'category_lang` cl ON (c.`id_category` = cl.`id_category` AND cl.`id_lang` = '.(int)$this->context->language->id.Shop::addSqlRestrictionOnLang('cl').')
 				LEFT JOIN `'._DB_PREFIX_.'category_group` cg ON (cg.`id_category` = c.`id_category`)
-				WHERE (c.`active` = 1 OR c.`id_category` = 1)
+				WHERE (c.`active` = 1 OR c.`id_category` = '.(int)Configuration::get('PS_ROOT_CATEGORY').')
 				'.((int)($maxdepth) != 0 ? ' AND `level_depth` <= '.(int)($maxdepth) : '').'
 				AND cg.`id_group` IN ('.pSQL($groups).')
 				ORDER BY `level_depth` ASC, '.(Configuration::get('BLOCK_CATEG_SORT') ? 'cl.`name`' : 'category_shop.`position`').' '.(Configuration::get('BLOCK_CATEG_SORT_WAY') ? 'DESC' : 'ASC')))
@@ -372,7 +371,7 @@ class BlockCategories extends Module
 	{
 		$this->_clearBlockcategoriesCache();
 	}
-	
+
 	public function renderForm()
 	{
 		$fields_form = array(
@@ -386,16 +385,27 @@ class BlockCategories extends Module
 						'type' => 'radio',
 						'label' => $this->l('Category root'),
 						'name' => 'BLOCK_CATEG_ROOT_CATEGORY',
+						'hint' => $this->l('Select which category is displayed in the block. The current category is the one the visitor is currently browsing.'),
 						'values' => array(
 							array(
 								'id' => 'home',
 								'value' => 0,
-								'label' => $this->l('Home')
+								'label' => $this->l('Home category')
 							),
 							array(
 								'id' => 'current',
 								'value' => 1,
-								'label' => $this->l('Current')
+								'label' => $this->l('Current category')
+							),
+							array(
+								'id' => 'parent',
+								'value' => 2,
+								'label' => $this->l('Parent category')
+							),
+							array(
+								'id' => 'current_parent',
+								'value' => 3,
+								'label' => $this->l('Current category, unless it has no subcategories, in which case the parent category of the current category is used')
 							),
 						)
 					),
@@ -403,13 +413,13 @@ class BlockCategories extends Module
 						'type' => 'text',
 						'label' => $this->l('Maximum depth'),
 						'name' => 'BLOCK_CATEG_MAX_DEPTH',
-						'desc' => $this->l('Set the maximum depth of sublevels displayed in this block (0 = infinite).'),
+						'desc' => $this->l('Set the maximum depth of category sublevels displayed in this block (0 = infinite).'),
 					),
 					array(
 						'type' => 'switch',
 						'label' => $this->l('Dynamic'),
 						'name' => 'BLOCK_CATEG_DHTML',
-						'desc' => $this->l('Activate dynamic (animated) mode for sublevels.'),
+						'desc' => $this->l('Activate dynamic (animated) mode for category sublevels.'),
 						'values' => array(
 									array(
 										'id' => 'active_on',
@@ -468,10 +478,10 @@ class BlockCategories extends Module
 				)
 			),
 		);
-		
+
 		$helper = new HelperForm();
 		$helper->show_toolbar = false;
-		$helper->table =  $this->table;
+		$helper->table = $this->table;
 		$lang = new Language((int)Configuration::get('PS_LANG_DEFAULT'));
 		$helper->default_form_language = $lang->id;
 		$helper->allow_employee_form_lang = Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG') ? Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG') : 0;
@@ -487,7 +497,7 @@ class BlockCategories extends Module
 
 		return $helper->generateForm(array($fields_form));
 	}
-	
+
 	public function getConfigFieldsValues()
 	{
 		return array(
