@@ -116,16 +116,16 @@
                                     {/if}
                                 </div>-->
                                 <div class="gk-border-left bbb">
-                                    <a href="http://gelikonrepository.de/index.php?id_cms_category=2&amp;controller=cms&amp;id_lang=1" class="main-cat">Геликон</a>
+                                    <a href="/index.php?id_cms_category=2&amp;controller=cms&amp;id_lang=1" class="main-cat">Геликон</a>
                                                                             <ul class="nav nav-vertical gk-sub-cat">
-                                                                                            <li class=""><a href="http://gelikonrepository.de/index.php?id_cms=7&amp;controller=cms&amp;id_lang=1">Impressum</a></li>
+                                                                                            <li class=""><a href="/index.php?id_cms=7&amp;controller=cms&amp;id_lang=1">Impressum</a></li>
                                                                                             <li class="feedback_form_link" title="{l s='Обратная связь'}"><a href="">{l s='Обратная связь'}</a></li>
-                                                                                            <li class=""><a href="http://gelikonrepository.de/index.php?id_cms=8&amp;controller=cms&amp;id_lang=1">Контакты</a></li>
-                                                                                            <li class=""><a href="http://gelikonrepository.de/index.php?id_cms=9&amp;controller=cms&amp;id_lang=1">Стоимость доставки</a></li>
-                                                                                            <li class=""><a href="http://gelikonrepository.de/index.php?id_cms=14&amp;controller=cms&amp;id_lang=1">AGB</a></li>
-                                                                                            <li class=""><a href="http://gelikonrepository.de/index.php?id_cms=15&amp;controller=cms&amp;id_lang=1">Datenschutz</a></li>
-                                                                                            <li class=""><a href="http://gelikonrepository.de/index.php?id_cms=16&amp;controller=cms&amp;id_lang=1">Widerruf</a></li>
-                                                                                            <li class="gk-border-none"><a href="http://gelikonrepository.de/index.php?id_cms=17&amp;controller=cms&amp;id_lang=1">Zahlung und Versand</a></li>
+                                                                                            <li class=""><a href="/index.php?id_cms=8&amp;controller=cms&amp;id_lang=1">Контакты</a></li>
+                                                                                            <li class=""><a href="/index.php?id_cms=9&amp;controller=cms&amp;id_lang=1">Стоимость доставки</a></li>
+                                                                                            <li class=""><a href="/index.php?id_cms=14&amp;controller=cms&amp;id_lang=1">AGB</a></li>
+                                                                                            <li class=""><a href="/index.php?id_cms=15&amp;controller=cms&amp;id_lang=1">Datenschutz</a></li>
+                                                                                            <li class=""><a href="/index.php?id_cms=16&amp;controller=cms&amp;id_lang=1">Widerruf</a></li>
+                                                                                            <li class="gk-border-none"><a href="/index.php?id_cms=17&amp;controller=cms&amp;id_lang=1">Zahlung und Versand</a></li>
                                                                                     </ul>
                                                                     </div>
                             {/if}
