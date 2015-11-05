@@ -61,7 +61,7 @@ class SearchControllerCore extends FrontController
 		$original_query = Tools::getValue('q');
 		if ($this->ajax_search)
 		{
-			$searchResults = Search::find((int)(Tools::getValue('id_lang')), $query, 1, 10, 'position', 'desc', true);
+			$searchResults = Search::find((int)(Tools::getValue('id_lang')), $query, 1, 10, 'quantity', 'desc', true);
 			foreach ($searchResults as &$product)
 				$product['product_link'] = $this->context->link->getProductLink($product['id_product'], $product['prewrite'], $product['crewrite']);
 			die(Tools::jsonEncode($searchResults));

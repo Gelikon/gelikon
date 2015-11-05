@@ -321,7 +321,6 @@ class AdminProductsControllerCore extends AdminController
 		parent::copyFromPost($object, $table);
 		if (get_class($object) != 'Product')
 			return;
-        $def_lang_id = Configuration::get('PS_LANG_DEFAULT');
 
 		/* Additional fields */
 		$languages = Language::getLanguages(false);
@@ -345,17 +344,6 @@ class AdminProductsControllerCore extends AdminController
 		$object->show_price = $object->available_for_order ? 1 : (int)Tools::getValue('show_price');
 		$object->on_sale = (int)Tools::getValue('on_sale');
 		$object->online_only = (int)Tools::getValue('online_only');
-
-        $name = $object->name[$def_lang_id];
-        $description = $object->description[$def_lang_id];
-        $description_short = $object->description[$def_lang_id];
-        foreach ($languages as $language){
-            if( $language['id_lang'] == $def_lang_id)
-                continue;
-//            $object->name[$language['id_lang']] = !empty($object->name[$language['id_lang']]) ? $object->name[$language['id_lang']] :  $name;
-            $object->description[$language['id_lang']] = !empty($object->description[$language['id_lang']]) ? $object->description[$language['id_lang']] :  $description;
-            $object->description_short[$language['id_lang']] = !empty($object->description_short[$language['id_lang']]) ? $object->description_short[$language['id_lang']] :  $description_short;
-        }
 	}
 
 	public function getList($id_lang, $orderBy = null, $orderWay = null, $start = 0, $limit = null, $id_lang_shop = null)

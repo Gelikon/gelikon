@@ -29,8 +29,8 @@ $_MODULE['<{bankwire}gelikon>payment_execution_b28be4c423d93e02081f4e79fe2434e8'
 $_MODULE['<{bankwire}gelikon>payment_execution_a7a08622ee5c8019b57354b99b7693b2'] = 'Выберите что-то  из ниже указанного:';
 $_MODULE['<{bankwire}gelikon>payment_execution_a854d894458d66d92cabf0411c499ef4'] = 'Мы принимаем следующие валюты:';
 $_MODULE['<{bankwire}gelikon>payment_execution_3dd021316505c0204989f984246c6ff1'] = 'Информация о банковском счете будет показана на следующей странице.';
-$_MODULE['<{bankwire}gelikon>payment_execution_b939c4940deb5588f47ee8f12c61f11f'] = 'Пожалуйста подтвердите свой заказ, нажав \"Я подтверждаю свой ​​заказ.\"';
-$_MODULE['<{bankwire}gelikon>payment_execution_46b9e3665f187c739c55983f757ccda0'] = 'Я подтверждаю свой заказ';
+$_MODULE['<{bankwire}gelikon>payment_execution_b939c4940deb5588f47ee8f12c61f11f'] = 'Пожалуйста подтвердите свой заказ, нажав \"Купить\"';
+$_MODULE['<{bankwire}gelikon>payment_execution_46b9e3665f187c739c55983f757ccda0'] = 'Купить';
 $_MODULE['<{bankwire}gelikon>payment_execution_569fd05bdafa1712c4f6be5b153b8418'] = 'Другие способы оплаты';
 $_MODULE['<{bankwire}gelikon>infos_c1be305030739396775edaca9813f77d'] = 'Этот модуль позволяет принимать платежи банковским переводом.';
 $_MODULE['<{bankwire}gelikon>infos_60742d06006fde3043c77e6549d71a99'] = 'Если клиент выбирает оплату банковским переводом, статус заказа изменится на \"В ожидании оплаты.\"';

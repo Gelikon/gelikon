@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module>
 	<name>vatnumber</name>
-	<displayName><![CDATA[European VAT number]]></displayName>
+	<displayName><![CDATA[ИНН]]></displayName>
 	<version><![CDATA[1.5]]></version>
-	<description><![CDATA[Enables you to enter the intra-community VAT number when creating the address. You must fill in the company field to allow entering the VAT number.]]></description>
+	<description><![CDATA[Позволяет вам вводить ИНН при создании адреса в рамках сообщества. Вы должны заполнить поле компании, для ввода номера ИНН.]]></description>
 	<author><![CDATA[PrestaShop]]></author>
 	<tab><![CDATA[billing_invoicing]]></tab>
 	<is_configurable>1</is_configurable>

@@ -76,7 +76,7 @@
 								{/if}
 								{/foreach}
                                 <p class="gk-elem-first"><b>{l s='Количество на складе:'} </b>{if $product->quantity <= 0}{if $allow_oosp}{$product->available_later}{else}{l s='This product is no longer in stock'}{/if}{else}{*$product->available_now*}{$product->quantity}{/if}</p>
-                                <p class="gk-elem-first"><b>{l s='Вес товара:'}</b> {$product->weight} {l s='кг'}</p>
+                                <p class="gk-elem-first" style="float: left;"><b>{l s='Вес товара:'}</b> <div class="threenull">{$product->weight}</div> {l s='кг'}</p>
                             </div>
                         </div>
                         <div class="gk-col gk-col5">
@@ -115,14 +115,18 @@
 
                             {l s='This product is no longer in stock and can be brought to order in 2-3 weeks.'}
                           
-                        {else}{*$product->available_now*}{l s='This product available now '}
+                        {else}{*$product->available_now*}{l s='Товар есть в наличии. Оправка в течение 2-6 рабочих дней.'}
                         {/if}
-                    </span>             
+                    </span>
+                                 
                 </p>
                 <!--
                 <p class="warning_inline" id="last_quantities"{if ($product->quantity > $last_qties || $product->quantity <= 0) || $allow_oosp || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none"{/if} >{l s='Warning: Last items in stock!'}</p>
                 {/if}
             -->
+
+
+            
               
                     <!-- number of item in stock -->
                     {*<p id="pQuantityAvailable"{if $product->quantity <= 0} style="display: none;"{/if}>*}
@@ -184,9 +188,9 @@
         </div>
 
         <div class="blk">
-            <div class="gk-subscribe">
+            <!--<div class="gk-subscribe">
                 <div class="title">{l s='Подпишитесь на новости'}</div>
-               <!-- Begin MailChimp Signup Form -->
+               
                 <div id="mc_embed_signup">
                 <form action="//gelikon.us10.list-manage.com/subscribe/post?u=396b4d0d91483a5207f7b6bdc&amp;id=de8dffa51a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                     <div id="mc_embed_signup_scroll">
@@ -198,15 +202,13 @@
                     <div id="mce-responses" class="clear">
                         <div class="response" id="mce-error-response" style="display:none"></div>
                         <div class="response" id="mce-success-response" style="display:none"></div>
-                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    </div>    
                     <div style="position: absolute; left: -5000px;"><input type="text" name="b_396b4d0d91483a5207f7b6bdc_de8dffa51a" tabindex="-1" value=""></div>
                     <div class="clear">
                         <input type="submit" value="ok" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
                     </div>
                 </form>
-                </div>
-
-                <!--End mc_embed_signup-->
+                </div>-->
 
 
  

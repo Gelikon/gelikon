@@ -173,30 +173,6 @@
 			<input maxlength="13" type="text" id="ean13" name="ean13" value="{$product->ean13|htmlentitiesUTF8}" />
 		</div>
 	</div>
-<!-- Print barcode START-->	
-<a id="print_barcode" href="/admin0884/index.php?controller=AdminModules&configure=bqbarcodegeneration&tab_module=administration&module_name=bqbarcodegeneration&tb=3">{l s='Print barcode'}</a>
-{literal}
-<script type="text/javascript">
-
-$('a#print_barcode').click(function(e) {
-   var $this = $(this);
-   var href = "?controller=AdminModules&token=86ce0a91bf9c007f951ce43b12e27c26&configure=bqbarcodegeneration&tab_module=administration&module_name=bqbarcodegeneration&tb=2&tb=3";
-   var pdf_url = "/modules/bqbarcodegeneration/pdf/ean13.pdf";
-   console.log(href);
-   e.preventDefault();
-   $.post(href, {{/literal}'product_id[]': {$product->id}, 'type': 'ean13','printformat':'C76','nbproduct':'1','submitPrint':'Print Barecodes'{literal}}, 
-		function( data ) {
-		  //alert( "Data Loaded: " + data );
-		  pdf_url = pdf_url+"?nocache=" + (new Date()).getTime();
-		  window.location = pdf_url; 
-		  console.log(data);
-		}
-   );
-});
-
-</script>
-{/literal}
-<!-- Print barcode END-->	
 
 	<div class="form-group">
 		<label class="control-label col-lg-3" for="upc">
@@ -448,10 +424,6 @@ $('a#print_barcode').click(function(e) {
 		</div>
 	</div>
 	{/if}
-    <div class="form-group">
-        <div class="col-lg-3">{l s='Link to stock'}</div>
-        <div class="col-lg-9"><a href="{$link->getAdminLink('AdminStockManagement')|escape:'html':'UTF-8'}&addstock&id_product={$product->id}">{l s='Link to stock'}</a></div>
-    </div>
 
 	<div class="form-group">
 		<label class="control-label col-lg-3" for="tags_{$id_lang}">

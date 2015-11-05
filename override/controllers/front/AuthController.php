@@ -40,8 +40,6 @@ class AuthController extends AuthControllerCore
 		//print_r($this->errors);
 
 		$this->context->smarty->assign('genders', Gender::getGenders());
-		$this->context->smarty->assign('auth_type', '2');
-		
 
 		$this->assignDate();
 

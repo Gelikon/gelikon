@@ -174,7 +174,7 @@ class SearchCore
 		return $string;
 	}
 
-	public static function find($id_lang, $expr, $page_number = 1, $page_size = 1, $order_by = 'position',
+	public static function find($id_lang, $expr, $page_number = 1, $page_size = 1, $order_by = 'quantity',
 		$order_way = 'desc', $ajax = false, $use_cookie = true, Context $context = null)
 	{
 		if (!$context)
@@ -288,7 +288,7 @@ class SearchCore
 						AND cl.`id_lang` = '.(int)$id_lang.Shop::addSqlRestrictionOnLang('cl').'
 					)
 					WHERE p.`id_product` '.$product_pool.'
-					ORDER BY position DESC LIMIT 10';
+					ORDER BY quantity DESC LIMIT 10';
 			return $db->executeS($sql);
 		}
 
@@ -327,7 +327,7 @@ class SearchCore
 				LEFT JOIN `'._DB_PREFIX_.'image_lang` il ON (i.`id_image` = il.`id_image` AND il.`id_lang` = '.(int)$id_lang.')
 				WHERE p.`id_product` '.$product_pool.'
 				GROUP BY product_shop.id_product
-				'.($order_by ? 'ORDER BY  '.$alias.$order_by : '').($order_way ? ' '.$order_way : '').'
+				'.($order_by ? 'ORDER BY quantity DESC'.$alias.$order_by : '').($order_way ? ' '.$order_way : '').'
 				LIMIT '.(int)(($page_number - 1) * $page_size).','.(int)$page_size;
 		$result = $db->executeS($sql);
 

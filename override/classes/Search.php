@@ -26,7 +26,7 @@
 
 class Search extends SearchCore
 {
-    	public static function find($id_lang, $expr, $page_number = 1, $page_size = 1, $order_by = 'position',
+    	public static function find($id_lang, $expr, $page_number = 1, $page_size = 1, $order_by = 'quantity',
 		$order_way = 'desc', $ajax = false, $use_cookie = true, Context $context = null)
 	{
                 if(isset($_GET['id_category_search']) && $_GET['id_category_search'] != 'all')
@@ -88,7 +88,7 @@ class Search extends SearchCore
                                             AND sw.id_shop = '.$context->shop->id.'
                                             AND si.id_product = p.id_product
                                             AND ('.implode(' OR ', $score_array).')
-                            ) position';
+                            ) quantity';
 
                     $sql_groups = '';
                     if (Group::isFeatureActive())
@@ -175,7 +175,7 @@ class Search extends SearchCore
 						AND cl.`id_lang` = '.(int)$id_lang.Shop::addSqlRestrictionOnLang('cl').'
 					)
 					WHERE p.`id_product` '.$product_pool.'
-					ORDER BY position DESC LIMIT 10';
+					ORDER BY quantity DESC LIMIT 10';
 			return $db->executeS($sql);
 		}
 
@@ -219,7 +219,7 @@ class Search extends SearchCore
 				WHERE p.`id_product` '.$product_pool.'
 				GROUP BY product_shop.id_product
 				
-                                ORDER BY p.`date_add` ASC, `quantity` ASC 
+                                ORDER BY `quantity` DESC 
 				 LIMIT '.(int)(($page_number - 1) * $page_size).','.(int)$page_size;
    
                 //'.($order_by ? 'ORDER BY  '.$alias.$order_by : '').($order_way ? ' '.$order_way : '').'

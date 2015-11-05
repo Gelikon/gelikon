@@ -47,7 +47,7 @@
 <div class="gk-blk-open-radio gk-blk-authentication">
 	<div class="gk-g-wrap">
 		<div class="gk-col gk-col6">
-			<div class="wrap {if $auth_type === '1'}sel{/if}"> 
+			<div class="wrap {if $auth_type === '1'}sel{/if}">
 				<form {*method="post" action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}"*} onsubmit="myFunction(); return false;"> {* Gelikon hack here *}
 					<div class="control-row radio">
 						<div class="control-widget">
