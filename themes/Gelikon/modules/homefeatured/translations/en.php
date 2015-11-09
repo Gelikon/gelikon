@@ -18,6 +18,7 @@ $_MODULE['<{homefeatured}gelikon>homefeatured_4351cfebe4b61d8aa5efa1d020710005']
 $_MODULE['<{homefeatured}gelikon>homefeatured_2d0f6b8300be19cf35e89e66f0677f95'] = 'Add to cart';
 $_MODULE['<{homefeatured}gelikon>homefeatured_e0e572ae0d8489f8bf969e93d469e89c'] = 'No featured products';
 $_MODULE['<{homefeatured}gelikon>tab_2cc1943d4c0b46bfcf503a75c44f988b'] = 'Popular';
+$_MODULE['<{homefeatured}gelikon>homefeatured_a59a957a324ba14c587d57a0e0bb3cf7'] = 'This product is no longer in stock but can be ordered in 2-3 weeks.';
 $_MODULE['<{homefeatured}gelikon>homefeatured_db5f55c14912a071887b91510eb9f39c'] = 'More info';
 $_MODULE['<{homefeatured}gelikon>homefeatured_d038303b261d70e1ffbe6a6ee5dc67ef'] = 'Buy';
 $_MODULE['<{homefeatured}gelikon>homefeatured_642c133b35ce6ff4fcda7d80f98bb6b2'] = 'Subscribe to newsletter';

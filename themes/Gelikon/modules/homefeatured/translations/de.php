@@ -18,7 +18,7 @@ $_MODULE['<{homefeatured}gelikon>homefeatured_4351cfebe4b61d8aa5efa1d020710005']
 $_MODULE['<{homefeatured}gelikon>homefeatured_2d0f6b8300be19cf35e89e66f0677f95'] = 'In den Warenkorb';
 $_MODULE['<{homefeatured}gelikon>homefeatured_e0e572ae0d8489f8bf969e93d469e89c'] = 'Keine Highlights vorhanden';
 $_MODULE['<{homefeatured}gelikon>tab_2cc1943d4c0b46bfcf503a75c44f988b'] = 'Beliebt';
-$_MODULE['<{homefeatured}gelikon>homefeatured_a59a957a324ba14c587d57a0e0bb3cf7'] = 'Artikel nicht vorrätig. Lieferzeit aus Russland 2 - 6 Wochen.';
+$_MODULE['<{homefeatured}gelikon>homefeatured_a59a957a324ba14c587d57a0e0bb3cf7'] = 'Artikel nicht vorrätig. Kann bestellt werden. Lieferzeit aus Russland 2 - 6 Wochen.';
 $_MODULE['<{homefeatured}gelikon>homefeatured_db5f55c14912a071887b91510eb9f39c'] = 'Weiterlesen';
 $_MODULE['<{homefeatured}gelikon>homefeatured_d038303b261d70e1ffbe6a6ee5dc67ef'] = 'Kaufen';
 $_MODULE['<{homefeatured}gelikon>homefeatured_8224c14afc3d63e344fc9de1977b983c'] = 'Artikel vorrätig.';

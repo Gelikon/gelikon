@@ -28,8 +28,8 @@ $_MODULE['<{cheque}gelikon>payment_execution_7b1c6e78d93817f61f2b1bbc2108a803'] 
 $_MODULE['<{cheque}gelikon>payment_execution_a7a08622ee5c8019b57354b99b7693b2'] = 'Выберите что-то  из ниже указанного:';
 $_MODULE['<{cheque}gelikon>payment_execution_f73ad0f08052884ff465749bf48b55ce'] = 'Мы принимаем такую валюту для оплаты чеком:';
 $_MODULE['<{cheque}gelikon>payment_execution_7135ff14c7931e1c8e9d33aff3dfc7f7'] = 'Владелец чека и адрес будут отображены на следующей странице.';
-$_MODULE['<{cheque}gelikon>payment_execution_0881a11f7af33bc1b43e437391129d66'] = 'Пожалуйста, подтвердите Ваш заказ, нажав на \"Я подтверждаю заказ\"';
-$_MODULE['<{cheque}gelikon>payment_execution_46b9e3665f187c739c55983f757ccda0'] = 'Я подтверждаю свой заказ';
+$_MODULE['<{cheque}gelikon>payment_execution_0881a11f7af33bc1b43e437391129d66'] = 'Пожалуйста, подтвердите Ваш заказ, нажав на \"Купить\"';
+$_MODULE['<{cheque}gelikon>payment_execution_46b9e3665f187c739c55983f757ccda0'] = 'Купить';
 $_MODULE['<{cheque}gelikon>payment_execution_569fd05bdafa1712c4f6be5b153b8418'] = 'Другие способы оплаты';
 $_MODULE['<{cheque}gelikon>infos_14e41f4cfd99b10766cc15676d8cda66'] = 'Этот модуль позволяет вам принимать платежи чеком (векселем).';
 $_MODULE['<{cheque}gelikon>infos_e444fe40d43bccfad255cf62ddc8d18f'] = 'Если клиент выберет этот режим платежа, то статус заказа изменится на \"Ожидание оплаты\"';
