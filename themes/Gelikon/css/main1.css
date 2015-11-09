@@ -1310,17 +1310,18 @@ form .error .jq-selectbox__select {
     line-height: 1.1;
 }
 .gk-promo-slider .slide .signature {
-    font-size: 15pt;
-    margin: 5px 40px 0 0;
+    font-size: 26pt;
+    margin: 0px 110px 0 0;
     display: block;
     text-align: right;
+    color: #0B0000;
 }
 /*реклама на сайте*/
 .gk-banner { }
 .gk-banner img {
     width: 100%;
     max-width: 235px;
-    max-height: 400px;
+    max-height: 290px;
 }
 /*пункт каталого*/
 .gk-item { width: 200px }
@@ -1357,6 +1358,7 @@ form .error .jq-selectbox__select {
 .gk-item .icon-cart { color: #45815d }
 .gk-item .icon-cart:hover { color: #616da6 }
 .gk-item-sel {
+	z-index: 1;
     width: 450px;
     position: absolute;
     background: #fff;
@@ -1384,9 +1386,16 @@ form .error .jq-selectbox__select {
 .gk-item-sel .icon-cart { display: none }
 .gk-item-sel.last {  margin-left: -300px  }
 /*подписка*/
+.specnew
+{
+	display: block !important;
+}
+
 .gk-subscribe {
+	display: none;
     border: 8px solid #45815d;
-    padding: 40px 20px 30px;
+    padding: 20px 20px 30px;
+    margin-top: 10px;
 }
 .gk-subscribe .title {
     font-family: 'bold';
@@ -1400,7 +1409,7 @@ form .error .jq-selectbox__select {
     float: left;
 }
 .gk-subscribe input[type=email] {
-    background: #45815d;
+    background: #616DA6;
     border: none;
     width: 100%;
     padding: 3px 5px;
@@ -1415,7 +1424,7 @@ form .error .jq-selectbox__select {
     width: 25%;
     float: right;
     border: none;
-    margin-top: 5px;
+    margin-top: -28px;
 }
 .gk-subscribe input[type=submit]:hover { color: #e8c31b }
 /*счетчик*/
@@ -1485,11 +1494,11 @@ form .error .jq-selectbox__select {
 .blk17 { margin: 17px 0 }
 /*слайдеп новостей*/
 .gk-news-slider {
-    border-left: 15px solid #616da6;
+	border-left: 15px solid #616da6;
     border-bottom: 15px solid #616da6;
     padding: 20px;
-    width: 84.5%;
-    height: 280px;
+    width: 75.5%;
+    height: 185px;
     overflow: hidden;
     position: relative;
 }
@@ -1514,10 +1523,10 @@ form .error .jq-selectbox__select {
 .gk-news-slider .gk-dots a:hover { border-color: transparent }
 .gk-news-slider .gk-dots .sel:after,
 .gk-news-slider .gk-dots a:hover:after { background: #45815d }
-.gk-news-slider .description { margin-top: 10px }
+.gk-news-slider .description { margin-top: 10px; overflow: hidden;}
 .gk-news-slider .slide-wrap { position: relative }
 .gk-news-slider .slide {
-    height: 240px;
+    height: 140px;
     overflow: hidden;
     float: left;
     width: 670px;
@@ -1525,26 +1534,25 @@ form .error .jq-selectbox__select {
 }
 .gk-news-slider .slide .title a {
     font-weight: bold;
-    font-size: 12pt;
+    font-size: 14pt;
     text-decoration: none;
 }
 .gk-news-slider .slide .text {
-    width: 85%;
+	width: 85%;
     margin-right: 5%;
     font-size: 12pt;
-    min-height: 200px;
+    min-height: 105px;
     color: #000;
     text-decoration: none;
-    display: block;
 }
 .gk-news-slider .slide .link {
     position: absolute;
-    bottom: 10px;
-    right: 25px;
+    bottom: 20px;
+    right: 12px;
 }
 .gk-news-slider .slide .arrow {
     border-style: solid;
-    border-width: 32px 0 32px 30px;
+    border-width: 28px 0 28px 28px;
     border-color: transparent transparent transparent #e8c31b;
     display: block;
 }
@@ -1633,7 +1641,7 @@ form .error .jq-selectbox__select {
 .gk-other-shops .shop > .title { font-size: 17pt }
 /*похожие продукты*/
 .gk-similar-products { }
-.gk-similar-products .gk-catalog { margin-top: 30px }
+.gk-similar-products .gk-catalog { margin-top: 30px;    width: 94%;}
 /*прогресс заказа*/
 .gk-order-progress {
     text-align: center;
@@ -2212,6 +2220,8 @@ form .error .jq-selectbox__select {
 .gk-panel-footer .gk-encyclopedia a {
     display: block;
     width: 100%;
+    color: #E8C31B;
+    font-weight: bold;
 }
 /*панель копирайтов*/
 .gk-panel-copyright {
@@ -2419,3 +2429,47 @@ form .error .jq-selectbox__select {
 .availability_statut {display:none}
 /*.gk-item:hover .availability_statut {display:block}*/
 .gk-item.gk-item-sel .availability_statut {display:block}
+.product-count {
+    font-size: 18px;
+    font-family: 'bold';
+    color: #616DA6;
+}
+
+.threenull {
+    float: left;
+    width: 45px;
+    height: 22px;
+    overflow: hidden;
+}
+
+.gk-catalog {
+	margin-left: 50px;
+}
+
+.gk-encyclopedia a {
+    color: #E8C31B;
+    font-weight: bold;
+}
+
+.dost
+{
+    display: none;
+}
+
+.gk-item-sel .dost
+{
+    display: block !important;
+}
+
+.gk-item
+{
+    height: 320px;
+}
+.gk-item-sel {
+    height: auto !important;
+}
+
+
+.gk-panel.gk-panel-promo {
+    display: none !important;
+}
