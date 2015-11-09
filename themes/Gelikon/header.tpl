@@ -101,7 +101,7 @@
                             <!--энциклопедия gelicon-->
                             <div class="gk-col">
                                 <div class="gk-border-h gk-encyclopedia">
-                                    <a href="{$link->getCmsLink(12)}">{l s='энциклопедия gelicon'}</a>
+                                    <a href="{$link->getPageLink('new-products')}">{l s='Новинки'}</a>
                                 </div>
                             </div>
                             {hook h="displayNav"}   
@@ -153,7 +153,7 @@
 <div class="gk-col">
     <div class="gk-col">
         <div class="gk-border-h gk-encyclopedia">
-            <a href="{$link->getCmsLink(12)}">{l s='энциклопедия gelicon'}</a>
+            <a href="{$link->getPageLink('new-products')}">{l s='Новинки'}</a>
         </div>
     </div>
 </div> 
