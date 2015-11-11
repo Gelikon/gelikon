@@ -148,17 +148,17 @@ abstract class PaymentModule extends PaymentModuleCore
                                             $order->carrier_tax_rate = $this->book_rate;
                                             //$order->total_shipping_tax_excl = $order->total_shipping - $order->total_shipping * $this->book_rate/100;
                                             $shipping_tax_rate = $this->book_rate;
-                                            var_dump($shipping_tax_rate);
-                                            var_dump( $order->total_shipping);
+                                            //var_dump($shipping_tax_rate);
+                                            //var_dump( $order->total_shipping);
                                             $order->total_shipping_tax_excl = round($order->total_shipping * 100/(100+$shipping_tax_rate),2);
                                         }else{
                                             $order->carrier_tax_rate = $this->no_book_rate;
                                            	//$order->total_shipping_tax_excl = $order->total_shipping - $order->total_shipping * $this->no_book_rate/100;
                                             $shipping_tax_rate = $this->no_book_rate;
-                                            var_dump($shipping_tax_rate);
+                                            //var_dump($shipping_tax_rate);
                                             $order->total_shipping_tax_excl = round($order->total_shipping * 100/(100+$shipping_tax_rate),2);
                                         }
-                    var_dump($order->total_shipping_tax_excl);
+                    //var_dump($order->total_shipping_tax_excl);
 //					if (!is_null($carrier) && Validate::isLoadedObject($carrier))
 //						$order->carrier_tax_rate = $carrier->getTaxesRate(new Address($this->context->cart->{Configuration::get('PS_TAX_ADDRESS_TYPE')}));
 
