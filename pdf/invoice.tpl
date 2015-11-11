@@ -251,6 +251,13 @@
 				</tr>
 				{/if}
 
+				{if ($order_invoice->total_paid_tax_incl - $order_invoice->total_paid_tax_excl) > 0}
+				<tr style="line-height:5px;">
+					<td style="text-align: right; font-weight: bold">{l s='Total Products Tax' pdf='true'}</td>
+					<td style="width: 17%; text-align: right;">{displayPrice currency=$order->id_currency price=($order_invoice->total_paid_tax_incl - $order_invoice->total_paid_tax_excl)}</td>
+				</tr>
+				{/if}
+
 				{if $order_invoice->total_shipping_tax_incl > 0}
 				<tr style="line-height:5px;">
 					<td style="text-align: right; font-weight: bold">{l s='Shipping Cost' pdf='true'}</td>
@@ -264,12 +271,20 @@
 				</tr>
 				{/if}
 
-				{if ($order_invoice->total_paid_tax_incl - $order_invoice->total_paid_tax_excl) > 0}
-				<tr style="line-height:5px;">
-					<td style="text-align: right; font-weight: bold">{l s='Total Tax' pdf='true'}</td>
-					<td style="width: 17%; text-align: right;">{displayPrice currency=$order->id_currency price=($order_invoice->total_paid_tax_incl - $order_invoice->total_paid_tax_excl)}</td>
-				</tr>
-				{/if}
+					{if isset($shipping_tax_breakdown)}
+					{foreach $shipping_tax_breakdown as $shipping_tax_infos}
+					<tr style="line-height:5px;">
+					 <td style="text-align: right; font-weight: bold">
+						{if !isset($pdf_shipping_tax_written)}
+							{l s='Shipping Tax' pdf='true'}
+							{assign var=pdf_shipping_tax_written value=1}
+						{/if}
+					 </td>
+					 
+					 <td style="width: 17%; text-align: right;">{if isset($is_order_slip) && $is_order_slip}- {/if}{displayPrice currency=$order->id_currency price=$shipping_tax_infos.total_amount}</td>
+					</tr>
+					{/foreach}
+					{/if}								
 
 				<tr style="line-height:5px;">
 					<td style="text-align: right; font-weight: bold">{l s='Total' pdf='true'}</td>
