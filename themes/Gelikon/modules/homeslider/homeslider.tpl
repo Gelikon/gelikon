@@ -27,10 +27,11 @@
 
 {if $page_name =='index'}
 <!--промо-->
+<!--
 <div class="gk-panel gk-panel-promo">
 
     <!--промо-слайдер-->
-    <div class="gk-promo-slider">
+<!--    <div class="gk-promo-slider">
         <div class="gk-container">
             <div class="general-info">
                 <div class="title">
@@ -52,7 +53,7 @@
         {foreach from=$homeslider_slides item=slide}
            {if $slide.active}
         <!--слайд-->
-        <a href="{$slide.url|escape:'html':'UTF-8'}" class="slide" style="background-image: url({$link->getMediaLink("`$smarty.const._MODULE_DIR_`homeslider/images/`$slide.image|escape:'htmlall':'UTF-8'`")})">
+ <!--       <a href="{$slide.url|escape:'html':'UTF-8'}" class="slide" style="background-image: url({$link->getMediaLink("`$smarty.const._MODULE_DIR_`homeslider/images/`$slide.image|escape:'htmlall':'UTF-8'`")})">
             <div class="gk-container">
                 <div class="slide-info">
                     <div class="description">
@@ -74,5 +75,6 @@
         <div class="gk-clear-fix"></div>
     </div>
 </div>
+-->
 {/if}
 
