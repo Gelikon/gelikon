@@ -219,13 +219,13 @@ class Search extends SearchCore
 				WHERE p.`id_product` '.$product_pool.'
 				GROUP BY product_shop.id_product
 				
-                                ORDER BY `quantity` DESC, p.`date_add` ASC
+                                ORDER BY `quantity` DESC, p.`date_add` DESC
 				 LIMIT '.(int)(($page_number - 1) * $page_size).','.(int)$page_size;
    
                 //'.($order_by ? 'ORDER BY  '.$alias.$order_by : '').($order_way ? ' '.$order_way : '').'
 		$result = $db->executeS($sql);
 
-		$sql = 'SELECT COUNT(*)
+		$sql = 'select count(*) from (SELECT p.`id_product`
 				FROM '._DB_PREFIX_.'product p
 				'.Shop::addSqlAssociation('product', 'p').'
                                 LEFT JOIN `'._DB_PREFIX_.'category_product` cp	ON (p.`id_product` = cp.`id_product`)    
@@ -234,7 +234,7 @@ class Search extends SearchCore
 					AND pl.`id_lang` = '.(int)$id_lang.Shop::addSqlRestrictionOnLang('pl').'
 				)
 				LEFT JOIN `'._DB_PREFIX_.'manufacturer` m ON m.`id_manufacturer` = p.`id_manufacturer`
-				WHERE p.`id_product` '.$product_pool;
+				WHERE p.`id_product` '.$product_pool.' group by p.`id_product` ) as s';
 		$total = $db->getValue($sql);
 
 		if (!$result)
