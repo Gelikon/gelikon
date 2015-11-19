@@ -12633,4 +12633,72 @@ Content-Type: text/xml;charset=utf-8</pre></div><div style="display:table;backgr
 &lt;/associations&gt;
 &lt;/order&gt;
 &lt;/prestashop&gt;
-</pre></div>
+</pre></div>=============
+Обновление статусов заказов начато 2015-11-09 16:00:01
+Установлен срок хранения 14 дней
+Обновление статусов заказов закончено 2015-11-09 16:00:02
+<div style="display:table;background:#CCC;font-size:8pt;padding:7px"><h6 style="font-size:9pt;margin:0">HTTP REQUEST HEADER</h6><pre>GET //api/orders HTTP/1.1
+Authorization: Basic RUlZM0FTUkNXNkE3VU5IVkU2UEM3SlJFTVM4SVQxVEo6
+Host: gelikon-theme.dragon-web.vps-private.net
+Accept: */*
+
+</pre></div><div style="display:table;background:#CCC;font-size:8pt;padding:7px"><h6 style="font-size:9pt;margin:0">HTTP RESPONSE HEADER</h6><pre>HTTP/1.1 401 Unauthorized
+Date: Mon, 09 Nov 2015 21:00:01 GMT
+Server: Apache/2.2.15 (CentOS)
+WWW-Authenticate: Basic realm=&quot;Welcome to PrestaShop Webservice, please enter the authentication key as the login. No password required.&quot;
+Access-Time: 1447102802
+X-Powered-By: PrestaShop Webservice
+PSWS-Version: 1.6.0.6
+Execution-Time: 0.009
+Set-Cookie: 50611aebd1c5abb315ba70ce0ff2bb16=vijgX7Yum2rmxXmgJlsK6cux8bCo3RSPQzABIWfjZhRbSchzZP8hXHdRrCIYIcRBPNURZyqi8IP2JfUhxEbsADdfCOyHDlnYCUmoSQp0zWE%3D000079; expires=Sun, 29-Nov-2015 21:00:02 GMT; path=/; domain=gelikon-theme.dragon-web.vps-private.net; httponly
+Vary: Accept-Encoding
+Content-Length: 358
+Connection: close
+Content-Type: text/xml;charset=utf-8</pre></div><div style="display:table;background:#CCC;font-size:8pt;padding:7px"><h6 style="font-size:9pt;margin:0">RETURN HTTP BODY</h6><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;prestashop xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;&gt;
+&lt;errors&gt;
+&lt;error&gt;
+&lt;code&gt;&lt;![CDATA[19]]&gt;&lt;/code&gt;
+&lt;message&gt;&lt;![CDATA[Authentification key does not exist]]&gt;&lt;/message&gt;
+&lt;/error&gt;
+&lt;error&gt;
+&lt;code&gt;&lt;![CDATA[21]]&gt;&lt;/code&gt;
+&lt;message&gt;&lt;![CDATA[No permission for this authentication key]]&gt;&lt;/message&gt;
+&lt;/error&gt;
+&lt;/errors&gt;
+&lt;/prestashop&gt;
+</pre></div>Bad auth key=============
+Обновление статусов заказов начато 2015-11-10 16:00:02
+Установлен срок хранения 14 дней
+Обновление статусов заказов закончено 2015-11-10 16:00:04
+<div style="display:table;background:#CCC;font-size:8pt;padding:7px"><h6 style="font-size:9pt;margin:0">HTTP REQUEST HEADER</h6><pre>GET //api/orders HTTP/1.1
+Authorization: Basic RUlZM0FTUkNXNkE3VU5IVkU2UEM3SlJFTVM4SVQxVEo6
+Host: gelikon-theme.dragon-web.vps-private.net
+Accept: */*
+
+</pre></div><div style="display:table;background:#CCC;font-size:8pt;padding:7px"><h6 style="font-size:9pt;margin:0">HTTP RESPONSE HEADER</h6><pre>HTTP/1.1 401 Unauthorized
+Date: Tue, 10 Nov 2015 21:00:02 GMT
+Server: Apache/2.2.15 (CentOS)
+WWW-Authenticate: Basic realm=&quot;Welcome to PrestaShop Webservice, please enter the authentication key as the login. No password required.&quot;
+Access-Time: 1447189204
+X-Powered-By: PrestaShop Webservice
+PSWS-Version: 1.6.0.6
+Execution-Time: 0.081
+Set-Cookie: 2089cae0c0776f26c4b6a014d09e4cc2=vijgX7Yum2rmxXmgJlsK6awfop7odhR8pV0C7kdV3CVbSchzZP8hXHdRrCIYIcRBPNURZyqi8IP2JfUhxEbsAMdaxkp%2Fiu3EYmZWwNARUME%3D000079; expires=Mon, 30-Nov-2015 21:00:03 GMT; path=/; domain=.vps-private.net; httponly
+Vary: Accept-Encoding
+Content-Length: 358
+Connection: close
+Content-Type: text/xml;charset=utf-8</pre></div><div style="display:table;background:#CCC;font-size:8pt;padding:7px"><h6 style="font-size:9pt;margin:0">RETURN HTTP BODY</h6><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;prestashop xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;&gt;
+&lt;errors&gt;
+&lt;error&gt;
+&lt;code&gt;&lt;![CDATA[19]]&gt;&lt;/code&gt;
+&lt;message&gt;&lt;![CDATA[Authentification key does not exist]]&gt;&lt;/message&gt;
+&lt;/error&gt;
+&lt;error&gt;
+&lt;code&gt;&lt;![CDATA[21]]&gt;&lt;/code&gt;
+&lt;message&gt;&lt;![CDATA[No permission for this authentication key]]&gt;&lt;/message&gt;
+&lt;/error&gt;
+&lt;/errors&gt;
+&lt;/prestashop&gt;
+</pre></div>Bad auth key

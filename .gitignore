@@ -8,11 +8,14 @@ img/p/6
 img/p/7
 img/p/8
 img/p/9
+/pma/
+!/img/tmp/.gitignore
+/img/tmp/
 log/
 error_log
 .ftpquota
 !/cache/.gitignore
-cache/**
+/cache/**
 !/upload/.gitignore
 !/upload/import/.gitignore
 !/upload/import/csv/.gitignore
