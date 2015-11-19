@@ -149,7 +149,7 @@
                     <div class="title">Подписаться на новости</div>
                     
                     <div id="mc_embed_signup">
-                        <form action="http://casetamatic.us3.list-manage.com/subscribe/post?u=35ec21a452d57143a16dce4b2&amp;id=5d8ceaa53a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+                        <form action="//gelikon.us10.list-manage.com/subscribe/post?u=396b4d0d91483a5207f7b6bdc&amp;id=de8dffa51a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
                             <div class="mc-field-group">
                                 <label for="mce-EMAIL"></label>
                                 <input type="email" value="" name="EMAIL" class="required email" placeholder="мой e-mail" id="mce-EMAIL">
