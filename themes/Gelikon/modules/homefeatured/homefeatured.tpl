@@ -102,9 +102,9 @@
                     {*<span id="availability_label">{l s='Availability:'}</span>*}
                     <span id="availability_value"{if $product.quantity <= 0} class="warning_inline"{/if}>
                         {if $product.quantity <= 0}
-                            {l s='This product is no longer in stock and can be brought to order in 2-3 weeks.'}
+                            {l s="Товара нет на складе в Германии. Доставка из России от 2 до 6 недель."}
 
-                        {else}{*$product->available_now*}{l s='This product available now '}
+                        {else}{*$product->available_now*}{l s='Этот товар есть в наличии'}
                         {/if}
                     </span>
                 </p>
