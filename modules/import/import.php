@@ -113,8 +113,8 @@ class Import extends Module {
                     SELECT `cl`.`id_category`
                     FROM `" . _DB_PREFIX_ . "category_lang` AS `cl`
                     LEFT JOIN `"._DB_PREFIX_."category` AS `c` ON `c`.`id_category`=`cl`.`id_category`
-                    WHERE `cl`.`name` LIKE '%$name%' AND `c`.`id_parent` = ".BOOKS_CATEGORY."
-                ");
+                    WHERE `cl`.`name` LIKE '%$name%' 
+                "); //AND `c`.`id_parent` = ".BOOKS_CATEGORY."
                 if ($id_category) {
                     return $id_category;
                 } else {
@@ -573,6 +573,7 @@ class Import extends Module {
         $location->id_warehouse = $line['warehouse'];
         $location->save();
 
+        /*
         $stock = DB::getInstance()->getValue("SELECT `id_stock` FROM `" . _DB_PREFIX_ . "stock` WHERE `id_product` = {$product->id} AND `id_warehouse` = {$line['warehouse']}");
         $stock = new Stock($stock);
         $stock->id_product = $product->id;
@@ -582,7 +583,69 @@ class Import extends Module {
         $stock->usable_quantity = $line['count'];
         $stock->price_te = 0;
         $stock->save();
+        */
 
+        //установить зависимость количества товара от остатка на складе для каждого магазинеа
+        //исходим из того, что в настройках Мультимагазина остаток НЕ единый на все магазины
+        $id_product = $product->id;
+        $depends_on_stock = true;
+        $out_of_stock = 1; //2 - как в Preferences product. 1 - allow (ставь 1, т.к. 2 (как в Preferences) не дает заказать товар на сайте)  
+        for ($id_shop = 1; $id_shop<=4; $id_shop++){
+            StockAvailable::setProductDependsOnStock($id_product, $depends_on_stock, $id_shop);   
+        }
+
+        //разрешить или запретить продажу товара без остатка
+        /*  для магазина 2,3 запретить продажу, если нет в наличии. out_of_stock = 0
+            2   Second shop Gelikon 
+            3   First shop Gelikon
+        */
+        $out_of_stock = 0;
+        StockAvailable::setProductOutOfStock($id_product, $out_of_stock, 2);
+        StockAvailable::setProductOutOfStock($id_product, $out_of_stock, 3);
+        /*
+            Для online и заказов по телефону разрешить заказ товара, которого нет в наличии
+            1 Gelikon DE online
+            4 Заказы по телефону
+        */
+        $out_of_stock = 1;
+        StockAvailable::setProductOutOfStock($id_product, $out_of_stock, 1);
+        StockAvailable::setProductOutOfStock($id_product, $out_of_stock, 4);
+
+        //Добавить партию товара на склад с записью в журнал движения товаров
+        $id_product = $product->id;
+        $id_product_attribute = 0;
+        $id_stock_mvt_reason = 1;
+        $price = 1;
+        $id_currency = 1;
+        $id_warehouse = $line['warehouse'];
+        $warehouse = new Warehouse($id_warehouse);
+        $stock_manager = StockManagerFactory::getManager();
+
+        
+        if ($line['count'] !=0) {
+        //echo "добавляем товар ";
+            $is_usable = true;
+            $quantity = $line['count'];
+            // add stock
+            if ($stock_manager->addProduct($id_product, $id_product_attribute, $warehouse, $quantity, $id_stock_mvt_reason, $price, $is_usable))
+            {
+                StockAvailable::synchronize($id_product);
+            }
+            else
+                $errors[] = Tools::displayError('An error occurred. No stock was added.');
+        }
+
+
+
+
+
+
+
+
+
+
+
+/*
         $available = DB::getInstance()->getValue("SELECT `id_stock_available` FROM `". _DB_PREFIX_ . "stock_available` WHERE `id_product` = {$product->id} AND `id_shop` = " . Context::getContext()->shop->id);
         $available = new StockAvailable($available);
         $available->id_product = $product->id;
@@ -593,7 +656,7 @@ class Import extends Module {
 
         StockAvailable::setProductDependsOnStock($product->id, true, null);
         StockAvailable::setProductOutOfStock($product->id, 1, null); //allow
-
+*/
         while(strlen($line['reference']) < 9) {
             $line['reference'] = '0' . $line['reference'];
         }
