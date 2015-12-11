@@ -24,6 +24,7 @@
 *}
 
 <!-- MODULE Home Featured Products -->
+123
 <div id="featured-products_block_center" class="block products_block clearfix">
 	<h4 class="title_block">{l s='Featured products' mod='homefeatured'}</h4>
 	{if isset($products) AND $products}
