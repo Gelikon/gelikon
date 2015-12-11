@@ -95,7 +95,7 @@ class Category extends CategoryCore
 					($id_supplier ? 'AND p.id_supplier = '.(int)$id_supplier : '');
 			return (int)Db::getInstance(_PS_USE_SQL_SLAVE_)->getValue($sql);
 		}
-                $sql = 'SELECT p.*, ps.quantity AS `bestsale`, product_shop.*, stock.out_of_stock, IFNULL(stock.quantity, 0) as quantity, MAX(product_attribute_shop.id_product_attribute) id_product_attribute, product_attribute_shop.minimal_quantity AS product_attribute_minimal_quantity, pl.`description`, pl.`description_short`, pl.`available_now`,
+                $sql = 'SELECT p.*, ps.quantity AS `bestsale`, product_shop.*, stock.out_of_stock, IFNULL(stock.quantity, 0) as quantity, (stock.quantity > 0) as bool_quantity,  MAX(product_attribute_shop.id_product_attribute) id_product_attribute, product_attribute_shop.minimal_quantity AS product_attribute_minimal_quantity, pl.`description`, pl.`description_short`, pl.`available_now`,
                 pl.`available_later`, pl.`link_rewrite`, pl.`meta_description`, pl.`meta_keywords`, pl.`meta_title`, pl.`name`, MAX(image_shop.`id_image`) id_image,
                 il.`legend`, m.`name` AS manufacturer_name, cl.`name` AS category_default,
                 DATEDIFF(product_shop.`date_add`, DATE_SUB(NOW(),
@@ -140,7 +140,7 @@ class Category extends CategoryCore
 			 LIMIT '.(((int)$p - 1) * (int)$n).','.(int)$n;
                     }
                     else
-                        $sql .= ' ORDER BY `quantity` DESC , p.`date_add` DESC LIMIT '.(((int)$p - 1) * (int)$n).','.(int)$n;
+                        $sql .= ' ORDER BY `bool_quantity` DESC , p.`date_add` DESC LIMIT '.(((int)$p - 1) * (int)$n).','.(int)$n;
 
 
                     
